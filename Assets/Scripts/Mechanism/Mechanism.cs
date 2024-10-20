@@ -6,8 +6,8 @@ public class Mechanism : MonoBehaviour
 {
 
     private SpriteRenderer spriteRenderer;
-    [SerializeField] private float setColliderTime;
-    [SerializeField] private float setColliderAlpha;
+    [SerializeField] private float setColliderTime = 0.5f;
+    [SerializeField] private float setColliderAlpha = 0.1f;
     private Collider2D mechanismCollider;
 
     Coroutine changeColoerCoroutine = null;
