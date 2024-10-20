@@ -2,13 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Mechanism : MonoBehaviour
 {
-
+    public ButtonBasic button;
     private SpriteRenderer spriteRenderer;
     [SerializeField] private float setColliderTime = 0.5f;
     [SerializeField] private float setColliderAlpha = 0.1f;
     private Collider2D mechanismCollider;
+    public bool bindingTimePausePress = false;
+    public bool bindingTimePauseRelease = false;
+    public bool bindingColliderOnPress = false;
+    public bool bindingColliderOnRelease = false;
 
     Coroutine changeColoerCoroutine = null;
 
@@ -16,6 +21,31 @@ public class Mechanism : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         gameObject.TryGetComponent<Collider2D>(out mechanismCollider);
+        BindButton();
+    }
+
+    void BindButton()
+    {
+        if(bindingColliderOnPress)
+        {
+            button.AddPressDelegate(MechanismController.instance.SetColliderOn);
+            button.AddReleaseDelegate(MechanismController.instance.SetColliderOff);
+        }
+        if (bindingColliderOnRelease)
+        {
+            button.AddPressDelegate(MechanismController.instance.SetColliderOff);
+            button.AddReleaseDelegate(MechanismController.instance.SetColliderOn);
+        }
+        if(bindingTimePausePress)
+        {
+            button.AddPressDelegate(MechanismController.instance.SetTimePause);
+            button.AddReleaseDelegate(MechanismController.instance.SetTimeStart);
+        }
+        if (bindingTimePauseRelease)
+        {
+            button.buttonPressEvents += MechanismController.instance.SetTimeStart;
+            button.buttonReleaseEvents += MechanismController.instance.SetTimePause;
+        }
     }
 
 

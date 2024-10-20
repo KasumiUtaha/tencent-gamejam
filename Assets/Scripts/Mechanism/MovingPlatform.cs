@@ -27,7 +27,7 @@ public class MovingPlatform : Mechanism
 
     public override void TimePause()
     {
-        StopCoroutine(Moving());
+        StopAllCoroutines();
         if(onPlane) charaMove.onPlaneVelocity = 0;
     }
 
@@ -53,8 +53,7 @@ public class MovingPlatform : Mechanism
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer != 6) direction = -direction;
-        else onPlane = true;
+        if (collision.gameObject.layer == 6) onPlane = true;
 
     }
 
