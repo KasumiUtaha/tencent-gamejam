@@ -65,6 +65,16 @@ public class MovingPlatform : Mechanism
             charaMove.onPlaneVelocity = 0;
         }
     }
+    public override void SetColliderOff()
+    {
+        return;
+    }
+
+    public override void SetColliderOn()
+    {
+        return;
+    }
+
 
     void OnDrawGizmos()
     {

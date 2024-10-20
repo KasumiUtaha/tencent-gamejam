@@ -63,4 +63,5 @@ public class ButtonBasic : MonoBehaviour
         if(type) buttonPressEvents?.Invoke();
         else buttonReleaseEvents?.Invoke();
     }
+
 }

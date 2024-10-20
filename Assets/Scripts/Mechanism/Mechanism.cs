@@ -9,7 +9,7 @@ public class Mechanism : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     [SerializeField] private float setColliderTime = 0.5f;
     [SerializeField] private float setColliderAlpha = 0.1f;
-    private Collider2D mechanismCollider;
+    protected Collider2D mechanismCollider;
     public bool bindingTimePausePress = false;
     public bool bindingTimePauseRelease = false;
     public bool bindingColliderOnPress = false;
@@ -61,6 +61,7 @@ public class Mechanism : MonoBehaviour
 
     virtual public void SetColliderOff()
     {
+        if (!mechanismCollider) return;
         mechanismCollider.isTrigger = true;
         if(changeColoerCoroutine != null )
         {
@@ -71,6 +72,7 @@ public class Mechanism : MonoBehaviour
 
     virtual public void SetColliderOn()
     {
+        if (!mechanismCollider) return;
         mechanismCollider.isTrigger = false;
         if (changeColoerCoroutine != null)
         {
@@ -78,6 +80,7 @@ public class Mechanism : MonoBehaviour
         }
         changeColoerCoroutine = StartCoroutine(ChangeColor(1f));
     }
+
 
     IEnumerator ChangeColor(float targetAlpha)
     {
