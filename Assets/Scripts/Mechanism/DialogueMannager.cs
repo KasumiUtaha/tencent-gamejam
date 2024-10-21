@@ -58,7 +58,7 @@ public class DialogueMannager : MonoBehaviour
         else
         {
             dialogueBox.SetActive(false);//隐藏对话框
-            StopAllCoroutines();//关闭协程
+            StopCoroutine(ScollingText());//关闭协程
             currentLine = 0;//恢复为从第一句开始显示
         }
     }
@@ -73,6 +73,10 @@ public class DialogueMannager : MonoBehaviour
         {
             dialogueText.text += letter;//一个字母一个字母显示出来
             yield return new WaitForSeconds(textScollingIntervalTime);
+            if(isCover == false)
+            {
+                break;
+            }
         }
         isScolling = false;
     }
