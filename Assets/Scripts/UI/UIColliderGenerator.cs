@@ -56,9 +56,13 @@ public class UIColliderGenerator : MonoBehaviour
         }
     }
 
-    public void ChangeUiCollider()
+    public void SetUiColliderOn()
     {
-        ui_collider=!ui_collider;
+        ui_collider=true;
+    }
+    public void SetUiColliderOff()
+    {
+        ui_collider = false;
     }
     void CreateColliderForUIButton(Button uiButton)
     {
