@@ -49,11 +49,11 @@ public class MenuManager : UIManager
 
     private void TimePause()
     {
-        Time.timeScale = 0f;
+        MechanismController.instance.SetTimePause();
     }
     private void TimeReturn()
     {
-        Time.timeScale = 1f;
+        MechanismController.instance.SetTimeStart();
     }
     public void MenuOpen()
     {
