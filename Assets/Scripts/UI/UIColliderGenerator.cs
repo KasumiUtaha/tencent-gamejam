@@ -43,7 +43,7 @@ public class UIColliderGenerator : MonoBehaviour
     {
         if(ui_collider != pre_ui_collider)
         {
-            Debug.Log(ui_collider);
+            
             foreach(var but in buttonToCol.Keys)
             {
                 buttonToCol[but].enabled = ui_collider;
@@ -83,7 +83,7 @@ public class UIColliderGenerator : MonoBehaviour
         // 计算中心点位置和大小（转换到世界坐标）
         Vector3 centerPosition = (bottomLeft + topRight) / 2f;
         Vector2 size = new Vector2(topRight.x - bottomLeft.x, topRight.y - bottomLeft.y);
-        Debug.Log(size);
+        
 
         // 将屏幕位置转换为世界位置
         Vector3 worldPosition = mainCamera.ScreenToWorldPoint(centerPosition);
@@ -98,7 +98,7 @@ public class UIColliderGenerator : MonoBehaviour
             boxCollider.size = adjustedSize;
             boxCollider.enabled = false;
             buttonToCol[uiButton] = boxCollider;
-            Debug.Log(boxCollider.size);
+            
         }
         else
         {
