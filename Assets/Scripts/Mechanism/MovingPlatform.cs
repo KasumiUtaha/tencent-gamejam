@@ -14,6 +14,7 @@ public class MovingPlatform : Mechanism
     [SerializeField] private Transform rightDetector;
     [SerializeField] private Transform leftDetector;
     [SerializeField] private bool startMoving = true;
+    bool isMoving = false;
     private float adjustLength;
     public CharaMove charaMove;
     bool onPlane = false;
@@ -27,18 +28,20 @@ public class MovingPlatform : Mechanism
 
     public override void TimePause()
     {
-        StopAllCoroutines();
+        StopAllCoroutines(); isMoving = false;
         if(onPlane) charaMove.onPlaneVelocity = 0;
     }
 
     public override void TimeStart()
     {
+        if(!isMoving)
         StartCoroutine(Moving());
     }
 
 
     IEnumerator Moving()
     {
+        isMoving = true;
         while(true)
         {
             if (transform.position.x + direction * adjustLength >= rightPoint.position.x) direction = -1;

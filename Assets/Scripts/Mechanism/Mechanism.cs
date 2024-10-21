@@ -86,9 +86,9 @@ public class Mechanism : MonoBehaviour
     {
         Color targetColor = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, targetAlpha);
         float t = 0;
-        while (Mathf.Abs(spriteRenderer.color.a - targetAlpha) > 0.01f)
+        while (t < 1)
         {
-            t = Time.deltaTime / setColliderTime;
+            t += Time.deltaTime / setColliderTime;
 
             spriteRenderer.color = Color.Lerp(spriteRenderer.color, targetColor, t);
             yield return null;
