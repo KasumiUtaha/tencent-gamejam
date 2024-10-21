@@ -11,10 +11,16 @@ public class UIColliderGenerator : MonoBehaviour
     public Camera mainCamera; // 主摄像机
     public GameObject colliderPrefab; // 用于生成碰撞体的预制件
     private List<Button> buttons;
-    private List<Collider2D> cols;
+    [SerializeField]
+    private Dictionary<Button,BoxCollider2D> buttonToCol;
+    public bool ui_collider;//暴露的字段
+    private bool pre_ui_collider;
     void Start()
     {
+        ui_collider = false;
+        pre_ui_collider = ui_collider;
         buttons = new List<Button>();
+        buttonToCol = new Dictionary<Button,BoxCollider2D>();
         mainCamera ??= Camera.main;
         if (colliderPrefab == null)
         {
@@ -33,12 +39,26 @@ public class UIColliderGenerator : MonoBehaviour
             CreateColliderForUIButton(button);
         }
     }
-    public void ButtonToCollider()
+    private void Update()
     {
-        foreach(var col in cols)
+        if(ui_collider != pre_ui_collider)
         {
-            col.enabled = !col.enabled;
+            Debug.Log(ui_collider);
+            foreach(var but in buttonToCol.Keys)
+            {
+                buttonToCol[but].enabled = ui_collider;
+                if (!but.isActiveAndEnabled)
+                {
+                    buttonToCol[but].enabled = but.gameObject.activeInHierarchy;
+                }
+            }
+            pre_ui_collider = ui_collider;
         }
+    }
+
+    public void ChangeUiCollider()
+    {
+        ui_collider=!ui_collider;
     }
     void CreateColliderForUIButton(Button uiButton)
     {
@@ -63,6 +83,7 @@ public class UIColliderGenerator : MonoBehaviour
         // 计算中心点位置和大小（转换到世界坐标）
         Vector3 centerPosition = (bottomLeft + topRight) / 2f;
         Vector2 size = new Vector2(topRight.x - bottomLeft.x, topRight.y - bottomLeft.y);
+        Debug.Log(size);
 
         // 将屏幕位置转换为世界位置
         Vector3 worldPosition = mainCamera.ScreenToWorldPoint(centerPosition);
@@ -71,11 +92,13 @@ public class UIColliderGenerator : MonoBehaviour
         // 创建碰撞体对象
         GameObject newColliderObject = Instantiate(colliderPrefab, worldPosition, Quaternion.identity);
         BoxCollider2D boxCollider = newColliderObject.GetComponent<BoxCollider2D>();
-        cols.Add(boxCollider);
         Vector2 adjustedSize = size * screenToWorldRatio;
         if (boxCollider != null)
         {
             boxCollider.size = adjustedSize;
+            boxCollider.enabled = false;
+            buttonToCol[uiButton] = boxCollider;
+            Debug.Log(boxCollider.size);
         }
         else
         {
