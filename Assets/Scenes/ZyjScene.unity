@@ -557,8 +557,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc0260869ba3ff44fab1978eca9f8555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 0}
   setColliderTime: 0
   setColliderAlpha: 0
+  bindingTimePausePress: 0
+  bindingTimePauseRelease: 0
+  bindingColliderOnPress: 0
+  bindingColliderOnRelease: 0
   leftPoint: {fileID: 880238706}
   rightPoint: {fileID: 1139055920}
   movingSpeed: 3
@@ -1235,8 +1240,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78eb2409734658a489abfd258c37c0c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 0}
   setColliderTime: 0.5
   setColliderAlpha: 0.5
+  bindingTimePausePress: 0
+  bindingTimePauseRelease: 0
+  bindingColliderOnPress: 0
+  bindingColliderOnRelease: 0
 --- !u!61 &803404824
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2066,6 +2076,7 @@ MonoBehaviour:
     m_Bits: 8
   groundDetectDis: 0.05
   onPlaneVelocity: 0
+  canMove: 1
 --- !u!70 &1226440107
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

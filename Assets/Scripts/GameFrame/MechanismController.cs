@@ -6,6 +6,7 @@ public class MechanismController : MonoBehaviour
 {
     public static MechanismController instance;
     public GameObject[] gameObjects;
+    public List<GameObject> hiddenObjects;
 
     private void Awake()
     {
@@ -21,6 +22,21 @@ public class MechanismController : MonoBehaviour
         gameObjects = GameObject.FindGameObjectsWithTag("Mechanism");
     }
 
+    public void SetHiddenObjectOn()
+    {
+        foreach(GameObject go in hiddenObjects)
+        {
+            go.SetActive(true);
+        }
+    }
+
+    public void SetHiddenObjectOff()
+    {
+        foreach (GameObject go in hiddenObjects)
+        {
+            go.SetActive(false);
+        }
+    }
     public void SetColliderOn()
     {
         foreach (GameObject go in gameObjects)
