@@ -1682,6 +1682,7 @@ MonoBehaviour:
   onPlaneVelocity: 0
   canMove: 1
   player_move: 0
+  rb: {fileID: 0}
 --- !u!70 &1282096655
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2424,7 +2425,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1952965576}
   - component: {fileID: 1952965575}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}

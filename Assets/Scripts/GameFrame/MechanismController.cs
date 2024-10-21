@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MechanismController : MonoBehaviour
@@ -63,6 +64,7 @@ public class MechanismController : MonoBehaviour
             charaMove.canMove = false;
             charaMove.GetComponent<Rigidbody2D>().gravityScale = 0;
             charaMove.rb.velocity = Vector2.zero;
+            
         }
         foreach (GameObject go in gameObjects)
         {
