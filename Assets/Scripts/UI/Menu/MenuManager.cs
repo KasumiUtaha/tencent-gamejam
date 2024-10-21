@@ -24,7 +24,7 @@ public class MenuManager : UIManager
         base.Update();
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            
+
             if (menuCanvas.activeInHierarchy)
             {
                 OnClose();
@@ -46,21 +46,19 @@ public class MenuManager : UIManager
         base.OnClose();
         MenuClose();
     }
-    
+
     private void TimePause()
     {
-        Time.timeScale = 0f;
+        MechanismController.instance.SetTimePause();
     }
     private void TimeReturn()
     {
-        Time.timeScale = 1f;
+        MechanismController.instance.SetTimeStart();
     }
     public void MenuOpen()
     {
-        if (timePause)
-        {
-            TimePause();
-        }
+
+        TimePause();
         menuCanvas.SetActive(true);
     }
     public void MenuClose()
