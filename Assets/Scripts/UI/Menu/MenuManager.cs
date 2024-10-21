@@ -24,7 +24,7 @@ public class MenuManager : UIManager
         base.Update();
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Æô¶¯²Ëµ¥");
+            
             if (menuCanvas.activeInHierarchy)
             {
                 OnClose();
