@@ -14,6 +14,7 @@ public class MovingPlatform : Mechanism
     [SerializeField] private Transform rightDetector;
     [SerializeField] private Transform leftDetector;
     [SerializeField] private bool startMoving = true;
+    bool isMoving = false;
     private float adjustLength;
     public CharaMove charaMove;
     bool onPlane = false;
@@ -27,18 +28,20 @@ public class MovingPlatform : Mechanism
 
     public override void TimePause()
     {
-        StopCoroutine(Moving());
+        StopAllCoroutines(); isMoving = false;
         if(onPlane) charaMove.onPlaneVelocity = 0;
     }
 
     public override void TimeStart()
     {
+        if(!isMoving)
         StartCoroutine(Moving());
     }
 
 
     IEnumerator Moving()
     {
+        isMoving = true;
         while(true)
         {
             if (transform.position.x + direction * adjustLength >= rightPoint.position.x) direction = -1;
@@ -53,8 +56,7 @@ public class MovingPlatform : Mechanism
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer != 6) direction = -direction;
-        else onPlane = true;
+        if (collision.gameObject.layer == 6) onPlane = true;
 
     }
 
@@ -66,6 +68,16 @@ public class MovingPlatform : Mechanism
             charaMove.onPlaneVelocity = 0;
         }
     }
+    public override void SetColliderOff()
+    {
+        return;
+    }
+
+    public override void SetColliderOn()
+    {
+        return;
+    }
+
 
     void OnDrawGizmos()
     {
