@@ -57,6 +57,13 @@ public class MechanismController : MonoBehaviour
 
     public void SetTimePause()
     {
+        configReader.time_pause = true;
+        if(configReader.player_move == false) 
+        {
+            charaMove.canMove = false;
+            charaMove.GetComponent<Rigidbody2D>().gravityScale = 0;
+            charaMove.rb.velocity = Vector2.zero;
+        }
         foreach (GameObject go in gameObjects)
         {
             go.GetComponent<Mechanism>().TimePause();
@@ -65,6 +72,9 @@ public class MechanismController : MonoBehaviour
 
     public void SetTimeStart()
     {
+        configReader.time_pause = false;
+        charaMove.canMove = true;
+        charaMove.GetComponent<Rigidbody2D>().gravityScale = 1;
         foreach (GameObject go in gameObjects)
         {
             go.GetComponent<Mechanism>().TimeStart();

@@ -28,7 +28,7 @@ public class ConfigReader : MonoBehaviour
     private void Update()
     {
         DateTime currentModified = File.GetLastWriteTime(path);
-        //Debug.Log(currentModified + "   " + lastModified + "   " + path);
+       // Debug.Log(currentModified + "   " + lastModified + "   " + path);
         if (currentModified != lastModified)
         {
             Debug.Log("Modified");
@@ -53,12 +53,12 @@ public class ConfigReader : MonoBehaviour
             if (lineText.Contains("true"))
             {
                 player_move = true;
-                charaMove.player_move = true;
+                charaMove.canMove = true;
+                charaMove.GetComponent<Rigidbody2D>().gravityScale = 1;
             }
             else if (lineText.Contains("false"))
             {
                 player_move = false;
-                charaMove.player_move = false;
             }
         }
         else if(lineText.Contains("hidden_object"))

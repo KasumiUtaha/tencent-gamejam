@@ -174,7 +174,7 @@ MonoBehaviour:
   middlePoint: {fileID: 1486865045}
   springTime: 0.8
   idleTime: 0.3
-  configReader: {fileID: 0}
+  configReader: {fileID: 1442543649}
   charaMove: {fileID: 1282096654}
 --- !u!212 &166782485
 SpriteRenderer:
@@ -1681,6 +1681,7 @@ MonoBehaviour:
   groundDetectDis: 0.05
   onPlaneVelocity: 0
   canMove: 1
+  player_move: 0
 --- !u!70 &1282096655
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
