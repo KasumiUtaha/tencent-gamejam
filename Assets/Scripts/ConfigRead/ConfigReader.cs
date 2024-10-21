@@ -59,6 +59,7 @@ public class ConfigReader : MonoBehaviour
             else if (lineText.Contains("false"))
             {
                 player_move = false;
+                if(time_pause) charaMove.canMove = false;
             }
         }
         else if(lineText.Contains("hidden_object"))
@@ -78,12 +79,12 @@ public class ConfigReader : MonoBehaviour
         {
             if (lineText.Contains("true"))
             {
-                if (ui_collider == false) uIColliderGenerator.ChangeUiCollider();
+                if (ui_collider == false) uIColliderGenerator.SetUiColliderOn();
                 ui_collider = true;
             }
             else if (lineText.Contains("false"))
             {
-                if (ui_collider == true) uIColliderGenerator.ChangeUiCollider();
+                if (ui_collider == true) uIColliderGenerator.SetUiColliderOff();
                 ui_collider = false;
             }
         }
