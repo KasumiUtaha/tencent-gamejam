@@ -17,7 +17,7 @@ public class CharaMove : MonoBehaviour
     public float onPlaneVelocity = 0f;
 
     [HideInInspector]
-    public bool canMove { get; private set; } = true;
+    public bool canMove  = true;
 
     private Rigidbody2D rb;
     private Collider2D circleCollider;
