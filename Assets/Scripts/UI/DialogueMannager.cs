@@ -6,12 +6,18 @@ using TMPro;
 
 public class DialogueMannager : MonoBehaviour
 {
+    public TMP_FontAsset fontAsset;
     public GameObject dialogueBox;//显示or隐藏整个对话窗口
     public TextMeshProUGUI dialogueText, nameText;//输出文字和名字
+    public GameObject dialogueTextAsset;
+    private TextMeshPro textMeshPro;
     public GameObject TextTrigger;
     [TextArea(1, 3)]//显示文字时不会只显示一行
     public string[] dialogueLines;
     [SerializeField] private int currentLine;//用于实时追踪文字内容输出
+
+    public int textCount = 0;//文本框出现次数
+    public RectTransform DBtransform;//文本框的位置
 
     Vector3 mousePosition;//鼠标位置
     Vector3 TextTrigger_postion;//触发器位置
@@ -27,33 +33,40 @@ public class DialogueMannager : MonoBehaviour
         TextTrigger = GameObject.FindWithTag("TextTrigger");
         TextTrigger_postion = TextTrigger.transform.position;//获取触发器位置
         dialogueText.text = dialogueLines[currentLine];
+        textMeshPro = dialogueTextAsset.GetComponent<TextMeshPro>();
+
     }
 
     // Update is called once per frame
     void Update()
     {  
         MousePosition();//判断鼠标是否进入触发范围
-        Debug.Log(isCover);
+
         if (isCover)
         {
-            dialogueBox.SetActive(true);//显示对话框
-            if (dialogueBox.activeInHierarchy)//对话框窗口显示时才可以出现文本
+            textCount++;
+            if(textCount > 1)
             {
+                dialogueTextAsset.font = fontAsset;
+            }
+            dialogueBox.SetActive(true);//显示对话框
+                if (dialogueBox.activeInHierarchy)//对话框窗口显示时才可以出现文本
+                {
                     if (isScolling == false)
                     {
                         currentLine++;
                         if (currentLine < dialogueLines.Length)
                         {
-                           //dialogueText.text = dialogueLines[currentLine];
-                           StartCoroutine(ScollingText());
+                            //dialogueText.text = dialogueLines[currentLine];
+                            StartCoroutine(ScollingText());
                         }
                         else
                         {
-                           dialogueBox.SetActive(false);//隐藏对话框
-                           StopCoroutine(ScollingText());//关闭协程
+                            dialogueBox.SetActive(false);//隐藏对话框
+                            StopCoroutine(ScollingText());//关闭协程
                         }
                     }
-            }
+                }
         }
         else
         {
@@ -83,7 +96,6 @@ public class DialogueMannager : MonoBehaviour
 
     private void MousePosition()//判断鼠标是否在触发器里面
     {
-        Debug.Log(1);
         isCover = false;
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //Debug.Log(mousePosition);

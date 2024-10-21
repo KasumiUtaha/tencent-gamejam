@@ -690,10 +690,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4d06f1e188ceb642add04f9b2818a0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   dialogueBox: {fileID: 1777478898}
   dialogueText: {fileID: 1838672157}
   nameText: {fileID: 1305260789}
-  TextTrigger: {fileID: 0}
+  dialogueTextAsset: {fileID: 0}
+  TextTrigger: {fileID: 635032586}
   dialogueLines:
   - '                                                                                                  '
   - A pigeon, oppressed by excessive thirst, saw a goblet of water painted on a signboard.
@@ -703,6 +705,8 @@ MonoBehaviour:
     one of the bystanders.
   - "Moral\uFF1AZeal should not outrun discretion."
   currentLine: 0
+  textCount: 0
+  DBtransform: {fileID: 0}
   textScollingIntervalTime: 0.1
   StartIntervalTime: 0.1
 --- !u!4 &1105561451
@@ -1142,7 +1146,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 6, y: 286}
+  m_AnchoredPosition: {x: 10, y: 255}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1777478900
@@ -1256,7 +1260,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 160.09, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1838672156
 CanvasRenderer:
@@ -1458,6 +1462,7 @@ MonoBehaviour:
     m_Bits: 8
   groundDetectDis: 0.05
   onPlaneVelocity: 0
+  canMove: 1
 --- !u!70 &2064369121
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
