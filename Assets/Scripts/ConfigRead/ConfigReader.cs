@@ -10,11 +10,13 @@ public class ConfigReader : MonoBehaviour
     public TextAsset textAsset;
     string path;
     private DateTime lastModified;
-    bool time_pause = false;
-    bool player_collider = true;
-    bool ui_collider = false;
-    bool hidden_object = false;
-
+    public bool time_pause = false;
+    public bool player_move = false;
+    public bool player_collider = true;
+    public bool ui_collider = false;
+    public bool hidden_object = false;
+    [SerializeField] private UIColliderGenerator uIColliderGenerator;
+    [SerializeField] private CharaMove charaMove;
 
     private void Awake()
     {
@@ -26,7 +28,7 @@ public class ConfigReader : MonoBehaviour
     private void Update()
     {
         DateTime currentModified = File.GetLastWriteTime(path);
-        Debug.Log(currentModified + "   " + lastModified + "   " + path);
+        //Debug.Log(currentModified + "   " + lastModified + "   " + path);
         if (currentModified != lastModified)
         {
             Debug.Log("Modified");
@@ -46,17 +48,17 @@ public class ConfigReader : MonoBehaviour
 
     void Parse(string lineText)
     {
-        if (lineText.Contains("time_pause"))
+        if (lineText.Contains("player_move"))
         {
             if (lineText.Contains("true"))
             {
-                if(time_pause == false) MechanismController.instance.SetTimePause();
-                time_pause = true;
+                player_move = true;
+                charaMove.player_move = true;
             }
             else if (lineText.Contains("false"))
             {
-                if (time_pause == true) MechanismController.instance.SetTimeStart();
-                time_pause = false;
+                player_move = false;
+                charaMove.player_move = false;
             }
         }
         else if(lineText.Contains("hidden_object"))
@@ -76,12 +78,12 @@ public class ConfigReader : MonoBehaviour
         {
             if (lineText.Contains("true"))
             {
-                if (ui_collider == false) MechanismController.instance.SetTimePause();
+                if (ui_collider == false) uIColliderGenerator.ChangeUiCollider();
                 ui_collider = true;
             }
             else if (lineText.Contains("false"))
             {
-                if (ui_collider == true) MechanismController.instance.SetTimeStart();
+                if (ui_collider == true) uIColliderGenerator.ChangeUiCollider();
                 ui_collider = false;
             }
         }

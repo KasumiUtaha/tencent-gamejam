@@ -7,6 +7,8 @@ public class MechanismController : MonoBehaviour
     public static MechanismController instance;
     public GameObject[] gameObjects;
     public List<GameObject> hiddenObjects;
+    [SerializeField] private ConfigReader configReader;
+    public CharaMove charaMove;
 
     private void Awake()
     {
