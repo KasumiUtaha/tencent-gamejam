@@ -74,7 +74,7 @@ public class CharaMove : MonoBehaviour
                 (inputVelocity > 0.01 ? 1 : -1) ;
             walking = inputVelocity > 0.1f || inputVelocity < -0.1f;
         }
-        rb.velocityX = inputVelocity + onPlaneVelocity;
+        if(!onIce) rb.velocityX = inputVelocity + onPlaneVelocity;
     }
 
     private void PhysicsDetect()
