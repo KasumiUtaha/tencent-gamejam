@@ -19,6 +19,7 @@ public class CharaMove : MonoBehaviour
     [HideInInspector]
     public bool canMove  = true;
     public bool player_move = false;
+    public bool onIce = false;
 
     public Rigidbody2D rb;
     private Collider2D circleCollider;
@@ -45,7 +46,7 @@ public class CharaMove : MonoBehaviour
         PhysicsDetect();
         //Debug.Log(rb.velocity);
         //Debug.Log(canMove);
-        if(canMove && Input.GetButton("Jump"))
+        if((canMove || onIce) && Input.GetButton("Jump"))
         {
             //Debug.Log(onGround);
             //Debug.Log(rb.velocityY);
