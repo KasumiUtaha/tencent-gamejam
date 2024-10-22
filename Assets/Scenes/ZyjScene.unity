@@ -318,7 +318,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 61.1
+  m_fontSize: 121.25
   m_fontSizeBase: 75.33
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -723,7 +723,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 87.05
+  m_fontSize: 89.45
   m_fontSizeBase: 70.4
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -975,12 +975,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 778613693}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -64.061745, y: 38.312355, z: -1.5148902}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 841891780}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &803404822
 GameObject:
@@ -1167,7 +1167,8 @@ Transform:
   m_LocalPosition: {x: -64.061745, y: 38.312355, z: -1.5148902}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 778613695}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &841891781
@@ -2820,7 +2821,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72.95
+  m_fontSize: 121.25
   m_fontSizeBase: 108.6
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3153,7 +3154,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 557047214}
   - {fileID: 1877754139}
-  - {fileID: 778613695}
   - {fileID: 841891780}
   - {fileID: 865354295}
   - {fileID: 1503713592}

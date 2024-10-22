@@ -1,0 +1,24 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Box : Mechanism
+{
+    public Rigidbody2D boxRb;
+
+    private new void Start()
+    {
+        boxRb = FindFirstObjectByType<Rigidbody2D>();
+    }
+    public override void TimePause()
+    {
+        boxRb.constraints = RigidbodyConstraints2D.FreezePosition ;
+
+    }
+
+    public override void TimeStart()
+    {
+        boxRb.constraints = ~RigidbodyConstraints2D.FreezePosition;
+        boxRb.AddForce(Vector2.down * 0.1f);
+    }
+}

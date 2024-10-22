@@ -18,8 +18,10 @@ public class CharaMove : MonoBehaviour
 
     [HideInInspector]
     public bool canMove  = true;
+    public bool player_move = false;
+    public bool onIce = false;
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private Collider2D circleCollider;
 
     [HideInInspector]
@@ -44,7 +46,7 @@ public class CharaMove : MonoBehaviour
         PhysicsDetect();
         //Debug.Log(rb.velocity);
         //Debug.Log(canMove);
-        if(canMove && Input.GetButton("Jump"))
+        if((canMove || onIce) && Input.GetButton("Jump"))
         {
             //Debug.Log(onGround);
             //Debug.Log(rb.velocityY);
@@ -72,7 +74,7 @@ public class CharaMove : MonoBehaviour
                 (inputVelocity > 0.01 ? 1 : -1) ;
             walking = inputVelocity > 0.1f || inputVelocity < -0.1f;
         }
-        rb.velocityX = inputVelocity + onPlaneVelocity;
+        if(!onIce) rb.velocityX = inputVelocity + onPlaneVelocity;
     }
 
     private void PhysicsDetect()

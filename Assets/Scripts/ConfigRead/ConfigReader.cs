@@ -10,22 +10,17 @@ public class ConfigReader : MonoBehaviour
     public TextAsset textAsset;
     string path;
     private DateTime lastModified;
-    string time_pause = "time_pause";
-    string hidden_object = "hidden_object";
-    string player_collider = "player_collider";
-    string ui_collider = "ui_collider";
-    Dictionary<string, bool> diction = new Dictionary<string, bool>();
-
+    public bool time_pause = false;
+    public bool player_move = false;
+    public bool player_collider = true;
+    public bool ui_collider = false;
+    public bool hidden_object = false;
+    [SerializeField] private UIColliderGenerator uIColliderGenerator;
+    [SerializeField] private CharaMove charaMove;
 
     private void Awake()
     {
-        diction.Add("time_pause", false);
-        diction.Add("hidden_object", false);
-        diction.Add("player_collider", true);
-        diction.Add("ui_collider", false);
-        diction.Add("true", true);
-        diction.Add("false", false);
-        path = Application.dataPath + "/Configuration/" + textAsset.name;
+        path = Application.dataPath + "/Configuration/" + textAsset.name + ".txt";
         lastModified = File.GetLastWriteTime(path);
         ReadConfig();
     }
@@ -33,7 +28,7 @@ public class ConfigReader : MonoBehaviour
     private void Update()
     {
         DateTime currentModified = File.GetLastWriteTime(path);
-        Debug.Log(currentModified + "   " + lastModified + "   " + path);
+       // Debug.Log(currentModified + "   " + lastModified + "   " + path);
         if (currentModified != lastModified)
         {
             Debug.Log("Modified");
@@ -53,17 +48,59 @@ public class ConfigReader : MonoBehaviour
 
     void Parse(string lineText)
     {
-        string[] strings = lineText.Split('=');
-        if(strings.Length < 2)
+        if (lineText.Contains("player_move"))
         {
-            return;
+            if (lineText.Contains("true"))
+            {
+                player_move = true;
+                charaMove.canMove = true;
+                charaMove.GetComponent<Rigidbody2D>().gravityScale = 1;
+            }
+            else if (lineText.Contains("false"))
+            {
+                player_move = false;
+                if(time_pause) charaMove.canMove = false;
+            }
         }
-        Debug.Log(strings[0] + "    " + strings[1]);
-        diction[strings[0]] = diction[strings[1]];
+        else if(lineText.Contains("hidden_object"))
+        {
+            if (lineText.Contains("true"))
+            {
+                if(hidden_object == false) MechanismController.instance.SetHiddenObjectOn();
+                hidden_object = true;
+            }
+            else if (lineText.Contains("false"))
+            {
+                if (hidden_object == true) MechanismController.instance.SetHiddenObjectOff();
+                hidden_object = false;
+            }
+        }
+        else if(lineText.Contains("ui_collider"))
+        {
+            if (lineText.Contains("true"))
+            {
+                if (ui_collider == false) uIColliderGenerator.SetUiColliderOn();
+                ui_collider = true;
+            }
+            else if (lineText.Contains("false"))
+            {
+                if (ui_collider == true) uIColliderGenerator.SetUiColliderOff();
+                ui_collider = false;
+            }
+        }
+        else if(lineText.Contains("player_collider"))
+        {
+            if (lineText.Contains("true"))
+            {
+                if (player_collider == false) MechanismController.instance.SetColliderOn();
+                player_collider = true;
+            }
+            else if (lineText.Contains("false"))
+            {
+                if (player_collider == true) MechanismController.instance.SetColliderOff();
+                player_collider = false;
+            }
+        }
     }
 
-    void Apply()
-    {
-
-    }
 }
