@@ -7,7 +7,7 @@ using Button = UnityEngine.UI.Button;
 
 public class UIColliderGenerator : MonoBehaviour
 {
-    
+       
     public Camera mainCamera; // 主摄像机
     public GameObject colliderPrefab; // 用于生成碰撞体的预制件
     private List<Button> buttons;
@@ -56,9 +56,13 @@ public class UIColliderGenerator : MonoBehaviour
         }
     }
 
-    public void ChangeUiCollider()
+    public void SetUiColliderOn()
     {
-        ui_collider=!ui_collider;
+        ui_collider=true;
+    }
+    public void SetUiColliderOff()
+    {
+        ui_collider = false;
     }
     void CreateColliderForUIButton(Button uiButton)
     {

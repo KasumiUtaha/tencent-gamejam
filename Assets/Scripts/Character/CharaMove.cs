@@ -18,8 +18,9 @@ public class CharaMove : MonoBehaviour
 
     [HideInInspector]
     public bool canMove  = true;
+    public bool player_move = false;
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private Collider2D circleCollider;
 
     [HideInInspector]

@@ -204,7 +204,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 140
+  m_fontSize: 121.25
   m_fontSizeBase: 75.33
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -302,8 +302,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc0260869ba3ff44fab1978eca9f8555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 0}
   setColliderTime: 0
   setColliderAlpha: 0
+  bindingTimePausePress: 0
+  bindingTimePauseRelease: 0
+  bindingColliderOnPress: 0
+  bindingColliderOnRelease: 0
   leftPoint: {fileID: 880238706}
   rightPoint: {fileID: 1139055920}
   movingSpeed: 3
@@ -586,7 +591,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 140
+  m_fontSize: 89.45
   m_fontSizeBase: 70.4
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -838,12 +843,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 778613693}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -64.061745, y: 38.312355, z: -1.5148902}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 841891780}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &803404822
 GameObject:
@@ -876,8 +881,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78eb2409734658a489abfd258c37c0c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 0}
   setColliderTime: 0.5
   setColliderAlpha: 0.5
+  bindingTimePausePress: 0
+  bindingTimePauseRelease: 0
+  bindingColliderOnPress: 0
+  bindingColliderOnRelease: 0
 --- !u!61 &803404824
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1023,7 +1033,8 @@ Transform:
   m_LocalPosition: {x: -64.061745, y: 38.312355, z: -1.5148902}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 778613695}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &841891781
@@ -1708,6 +1719,7 @@ MonoBehaviour:
     m_Bits: 8
   groundDetectDis: 0.05
   onPlaneVelocity: 0
+  canMove: 1
 --- !u!70 &1226440107
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2458,7 +2470,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 140
+  m_fontSize: 121.25
   m_fontSizeBase: 108.6
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2612,7 +2624,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.708, y: 0.7707037}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000091553}
+  m_AnchoredPosition: {x: 0, y: -0.000091552734}
   m_SizeDelta: {x: 0, y: -0.00013733}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1998490689
@@ -2746,7 +2758,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 557047214}
   - {fileID: 1877754139}
-  - {fileID: 778613695}
   - {fileID: 841891780}
   - {fileID: 865354295}
   - {fileID: 1503713592}
