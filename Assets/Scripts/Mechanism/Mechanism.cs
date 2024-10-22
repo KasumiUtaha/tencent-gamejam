@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Mechanism : MonoBehaviour
 {
-    public ButtonBasic button;
+    public ButtonSet buttonSet;
     private SpriteRenderer spriteRenderer;
     [SerializeField] private float setColliderTime = 0.5f;
     [SerializeField] private float setColliderAlpha = 0.1f;
@@ -26,25 +26,26 @@ public class Mechanism : MonoBehaviour
 
     void BindButton()
     {
+        if (buttonSet == null) return;
         if(bindingColliderOnPress)
         {
-            button.AddPressDelegate(MechanismController.instance.SetColliderOn);
-            button.AddReleaseDelegate(MechanismController.instance.SetColliderOff);
+            buttonSet.buttonPressEvents += MechanismController.instance.SetColliderOn;
+            buttonSet.buttonReleaseEvents += MechanismController.instance.SetColliderOff;
         }
         if (bindingColliderOnRelease)
         {
-            button.AddPressDelegate(MechanismController.instance.SetColliderOff);
-            button.AddReleaseDelegate(MechanismController.instance.SetColliderOn);
+            buttonSet.buttonPressEvents += MechanismController.instance.SetColliderOff;
+            buttonSet.buttonReleaseEvents += MechanismController.instance.SetColliderOn;
         }
         if(bindingTimePausePress)
         {
-            button.AddPressDelegate(MechanismController.instance.SetTimePause);
-            button.AddReleaseDelegate(MechanismController.instance.SetTimeStart);
+            buttonSet.buttonPressEvents += MechanismController.instance.SetTimePause;
+            buttonSet.buttonReleaseEvents += MechanismController.instance.SetTimeStart;
         }
         if (bindingTimePauseRelease)
         {
-            button.buttonPressEvents += MechanismController.instance.SetTimeStart;
-            button.buttonReleaseEvents += MechanismController.instance.SetTimePause;
+            buttonSet.buttonPressEvents += MechanismController.instance.SetTimeStart;
+            buttonSet.buttonReleaseEvents += MechanismController.instance.SetTimePause;
         }
     }
 
