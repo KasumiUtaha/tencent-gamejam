@@ -7,7 +7,7 @@ public class MenuManager : UIManager
 {
 
     [SerializeField]
-    private GameObject menuCanvas;
+    private GameObject menu;
     private bool timePause;
     public void SetTimePause(bool flag)
     {
@@ -26,7 +26,7 @@ public class MenuManager : UIManager
         if (Input.GetKeyDown(KeyCode.Escape))
         {
 
-            if (menuCanvas.activeInHierarchy)
+            if (menu.activeInHierarchy)
             {
                 OnClose();
             }
@@ -60,11 +60,11 @@ public class MenuManager : UIManager
     {
 
         TimePause();
-        menuCanvas.SetActive(true);
+        menu.SetActive(true);
     }
     public void MenuClose()
     {
         TimeReturn();
-        menuCanvas.SetActive(false);
+        menu.SetActive(false);
     }
 }
