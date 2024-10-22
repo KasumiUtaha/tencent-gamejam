@@ -18,6 +18,7 @@ public class DialogueMannager : MonoBehaviour
 
     public int textCount = 0;//文本框出现次数
     public RectTransform DBtransform;//文本框的位置
+    public float dialogueRange = 0.5f;
 
     Vector3 mousePosition;//鼠标位置
     Vector3 TextTrigger_postion;//触发器位置
@@ -30,25 +31,26 @@ public class DialogueMannager : MonoBehaviour
 
     void Start()
     {
-        TextTrigger = GameObject.FindWithTag("TextTrigger");
+        
         TextTrigger_postion = TextTrigger.transform.position;//获取触发器位置
         dialogueText.text = dialogueLines[currentLine];
         textMeshPro = dialogueTextAsset.GetComponent<TextMeshPro>();
+        Debug.Log(TextTrigger_postion);
 
     }
 
     // Update is called once per frame
     void Update()
-    {  
+    {
+        
         MousePosition();//判断鼠标是否进入触发范围
-
         if (isCover)
         {
-            textCount++;
-            if(textCount > 1)
-            {
-                dialogueTextAsset.font = fontAsset;
-            }
+            //textCount++;
+            //if(textCount > 1)
+            //{
+            //    textMeshPro.font = fontAsset;
+            //}
             dialogueBox.SetActive(true);//显示对话框
                 if (dialogueBox.activeInHierarchy)//对话框窗口显示时才可以出现文本
                 {
@@ -98,10 +100,10 @@ public class DialogueMannager : MonoBehaviour
     {
         isCover = false;
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //Debug.Log(mousePosition);
-        if (mousePosition.x < (TextTrigger_postion.x + 0.5) && mousePosition.x > (TextTrigger_postion.x - 0.5))
+        Debug.Log(mousePosition + "     " + TextTrigger_postion);
+        if (mousePosition.x < (TextTrigger_postion.x + dialogueRange) && mousePosition.x > (TextTrigger_postion.x - dialogueRange))
         {
-            if(mousePosition.y < (TextTrigger_postion.y + 0.5) && mousePosition.y > (TextTrigger_postion.y - 0.5))
+            if(mousePosition.y < (TextTrigger_postion.y + dialogueRange) && mousePosition.y > (TextTrigger_postion.y - dialogueRange))
                 isCover = true;
             else
                 isCover = false;
@@ -110,4 +112,9 @@ public class DialogueMannager : MonoBehaviour
             isCover = false;
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(TextTrigger.transform.position, Vector3.one * dialogueRange);
+    }
 }
