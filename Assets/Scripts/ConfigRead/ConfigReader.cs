@@ -15,9 +15,13 @@ public class ConfigReader : MonoBehaviour
     public bool player_collider = true;
     public bool ui_collider = false;
     public bool hidden_object = false;
+    public float brightness = 1.0f;
+    public bool blur = false;
     [SerializeField] private UIColliderGenerator uIColliderGenerator;
     [SerializeField] private CharaMove charaMove;
     [SerializeField] private BrightnessManager brightnessManager;
+    [SerializeField] private ScreenBlurEffect screenBlurEffect;
+    [SerializeField] private DialogueMannager dialogueMannager;
     public List<string> originFileText = new List<string>();
     private DateTime currentModified = DateTime.MinValue;
 
@@ -35,7 +39,18 @@ public class ConfigReader : MonoBehaviour
         }
         File.WriteAllText(path, allText);
         lastModified = File.GetLastWriteTime(path);
-        ReadConfig();
+        StartConfig();
+        //ReadConfig();
+    }
+
+    void StartConfig()
+    {
+        if (time_pause) MechanismController.instance.SetTimePause();
+        if (!player_collider) MechanismController.instance.SetColliderOff();
+        if (ui_collider) uIColliderGenerator.SetUiColliderOn();
+        if (hidden_object) MechanismController.instance.SetHiddenObjectOn();
+        brightnessManager.SetLight(1.0f - brightness);
+        if(blur) screenBlurEffect.render_blur_effect = true;
     }
 
  
@@ -67,7 +82,6 @@ public class ConfigReader : MonoBehaviour
     {
         if (lineText.Contains("player_move"))
         {
-            Debug.Log("Trigger Player_Move" + "  " + lineText);
             if (lineText.Contains("true"))
             {
                 player_move = true;
@@ -122,15 +136,35 @@ public class ConfigReader : MonoBehaviour
         }
         else if(lineText.Contains("brightness"))
         {
-            Debug.Log("call SetLight");
             string[] st = lineText.Split('=');
             if (st.Length < 2) return;
             float brightness = float.Parse(st[1]);
             brightness = 1 - brightness;
             if (brightness > 1f) brightness = 1f;
             else if(brightness < 0f) brightness = 0f;
-            Debug.Log("brightness: " + brightness);
             brightnessManager.SetLight(brightness);
+        }
+        else if(lineText.Contains("Ä£ºý"))
+        {
+            if (lineText.Contains("true"))
+            {
+                screenBlurEffect.render_blur_effect = true;
+            }
+            else if (lineText.Contains("false"))
+            {
+                screenBlurEffect.render_blur_effect = false;
+            }
+        }
+        else if(lineText.Contains("×ÖÌå"))
+        {
+            if(lineText.Contains("JiaGuWenZi"))
+            {
+                dialogueMannager.ChangeFont1();
+            }
+            else if(lineText.Contains("Normal"))
+            {
+                dialogueMannager.ChangeFont2();
+            }
         }
     }
 

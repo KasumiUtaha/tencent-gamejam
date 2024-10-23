@@ -6,11 +6,12 @@ using TMPro;
 
 public class DialogueMannager : MonoBehaviour
 {
-    public TMP_FontAsset fontAsset;
+    public TMP_FontAsset fontAsset1;
+    public TMP_FontAsset fontAsset2;
     public GameObject dialogueBox;//显示or隐藏整个对话窗口
-    public TextMeshProUGUI dialogueText, nameText;//输出文字和名字
+    public TextMeshProUGUI dialogueText;//输出文字和名字
     public GameObject dialogueTextAsset;
-    private TextMeshPro textMeshPro;
+
     public GameObject TextTrigger;
     [TextArea(1, 3)]//显示文字时不会只显示一行
     public string[] dialogueLines;
@@ -33,9 +34,18 @@ public class DialogueMannager : MonoBehaviour
     {
         
         TextTrigger_postion = TextTrigger.transform.position;//获取触发器位置
-        dialogueText.text = dialogueLines[currentLine];
-        textMeshPro = dialogueTextAsset.GetComponent<TextMeshPro>();
 
+
+    }
+
+    public void ChangeFont1()
+    {
+        dialogueText.font = fontAsset1;
+    }
+
+    public void ChangeFont2()
+    {
+        dialogueText.font = fontAsset2;
     }
 
     // Update is called once per frame
@@ -50,12 +60,12 @@ public class DialogueMannager : MonoBehaviour
             //{
             //    textMeshPro.font = fontAsset;
             //}
-            dialogueBox.SetActive(true);//显示对话框
-                if (dialogueBox.activeInHierarchy)//对话框窗口显示时才可以出现文本
+                dialogueBox.SetActive(true);//显示对话框
+                if (dialogueBox.activeInHierarchy )//对话框窗口显示时才可以出现文本
                 {
-                    if (isScolling == false)
+                    if (isScolling == false && (Input.GetMouseButton(0) || currentLine == 0))
                     {
-                        currentLine++;
+                        
                         if (currentLine < dialogueLines.Length)
                         {
                             //dialogueText.text = dialogueLines[currentLine];
@@ -66,6 +76,7 @@ public class DialogueMannager : MonoBehaviour
                             //dialogueBox.SetActive(false);//隐藏对话框
                             //StopCoroutine(ScollingText());//关闭协程
                         }
+                        currentLine++;
                     }
                 }
         }

@@ -8,7 +8,7 @@ public class Box : Mechanism
 
     private new void Start()
     {
-        boxRb = FindFirstObjectByType<Rigidbody2D>();
+        boxRb = GetComponent<Rigidbody2D>();
     }
     public override void TimePause()
     {

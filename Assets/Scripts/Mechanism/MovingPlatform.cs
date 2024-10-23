@@ -62,6 +62,7 @@ public class MovingPlatform : Mechanism
         else if (collision.gameObject.transform.position.y > transform.position.y)
         {
             onPlaneObject = collision.gameObject;
+            collision.gameObject.transform.SetParent(transform);
         }
     }
 
@@ -74,6 +75,7 @@ public class MovingPlatform : Mechanism
         }
         else if(collision.gameObject == onPlaneObject)
         {
+            onPlaneObject.transform.SetParent(null);
             onPlaneObject = null;
         }
     }
