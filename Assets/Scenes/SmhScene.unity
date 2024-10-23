@@ -242,6 +242,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 275621382}
     - target: {fileID: 5900859450917897176, guid: 66918eeba700a6042be6f44df6992849, type: 3}
+      propertyPath: targetAlpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900859450917897176, guid: 66918eeba700a6042be6f44df6992849, type: 3}
       propertyPath: brightnessImage
       value: 
       objectReference: {fileID: 713605331}

@@ -21,7 +21,7 @@ public class BrightnessManager : UIManager
     
     void Start()
     {
-        SetLightOn();
+        //SetLightOn();
     }
     /// <summary>
     /// 调用此方法以开启灯光（亮度从0.2变为1）

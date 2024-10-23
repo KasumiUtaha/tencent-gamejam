@@ -35,7 +35,7 @@ public class ConfigReader : MonoBehaviour
         }
         File.WriteAllText(path, allText);
         lastModified = File.GetLastWriteTime(path);
-        //ReadConfig();
+        ReadConfig();
     }
 
  
@@ -122,6 +122,7 @@ public class ConfigReader : MonoBehaviour
         }
         else if(lineText.Contains("brightness"))
         {
+            Debug.Log("call SetLight");
             string[] st = lineText.Split('=');
             if (st.Length < 2) return;
             float brightness = float.Parse(st[1]);
