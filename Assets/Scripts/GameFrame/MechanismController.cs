@@ -71,7 +71,6 @@ public class MechanismController : MonoBehaviour
     public void SetTimePause()
     {
         configReader.time_pause = true;
-        Debug.Log("SetTimePause");
         if(configReader.player_move == false) 
         {
             charaMove.canMove = false;

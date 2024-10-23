@@ -126,6 +126,7 @@ public class ConfigReader : MonoBehaviour
             string[] st = lineText.Split('=');
             if (st.Length < 2) return;
             float brightness = float.Parse(st[1]);
+            brightness = 1 - brightness;
             if (brightness > 1f) brightness = 1f;
             else if(brightness < 0f) brightness = 0f;
             Debug.Log("brightness: " + brightness);

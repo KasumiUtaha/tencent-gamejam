@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngineInternal;
@@ -14,6 +15,7 @@ public class MovingPlatform : Mechanism
     [SerializeField] private Transform rightDetector;
     [SerializeField] private Transform leftDetector;
     [SerializeField] private bool startMoving = true;
+    [SerializeField] private GameObject onPlaneObject;
     bool isMoving = false;
     private float adjustLength;
     public CharaMove charaMove;
@@ -56,8 +58,11 @@ public class MovingPlatform : Mechanism
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 6) onPlane = true;
-
+        if (collision.gameObject.layer == 6 && collision.gameObject.transform.position.y > transform.position.y) onPlane = true;
+        else if (collision.gameObject.transform.position.y > transform.position.y)
+        {
+            onPlaneObject = collision.gameObject;
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -66,6 +71,10 @@ public class MovingPlatform : Mechanism
         {
             onPlane = false;
             charaMove.onPlaneVelocity = 0;
+        }
+        else if(collision.gameObject == onPlaneObject)
+        {
+            onPlaneObject = null;
         }
     }
     public override void SetColliderOff()

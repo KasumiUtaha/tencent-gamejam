@@ -24,6 +24,7 @@ public class ButtonBasic : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         isPressed = true;
+        AudioManager.instance.Play("click");
         animator.SetBool("isPressed", true);
         buttonSet.CheckAndInvoke(this);
     }
@@ -32,6 +33,7 @@ public class ButtonBasic : MonoBehaviour
     {
         isPressed = false;
         animator.SetBool("isPressed", false);
+        AudioManager.instance.Play("click");
         buttonSet.CheckAndInvoke(this);
     }
 
