@@ -14,13 +14,14 @@ public class BrightnessManager : UIManager
     // 过渡持续时间（秒）
     private float transitionDuration = 1f;
 
+    public float targetAlpha = 0f;
+
     // 当前正在运行的协程
     private Coroutine currentTransition = null;
     
     void Start()
     {
         SetLightOn();
-
     }
     /// <summary>
     /// 调用此方法以开启灯光（亮度从0.2变为1）
@@ -37,6 +38,12 @@ public class BrightnessManager : UIManager
         currentTransition = StartCoroutine(LightOn(brightnessImage.color.a));
     }
 
+    public void SetLight(float alpha)
+    {
+        targetAlpha = alpha;
+        if (brightnessImage.color.a > alpha) SetLightOn();
+        else SetLightOff();
+    }
     /// <summary>
     /// 调用此方法以关闭灯光（亮度从1变为0.2）
     /// </summary>
@@ -59,8 +66,7 @@ public class BrightnessManager : UIManager
     {
         float elapsedTime = 0f;
         float startAlpha = currentLight;
-        float targetAlpha = 0f; 
-
+        Debug.Log(startAlpha + " " + targetAlpha);
         while (elapsedTime < transitionDuration)
         {
             elapsedTime += Time.deltaTime;
@@ -80,8 +86,7 @@ public class BrightnessManager : UIManager
     private IEnumerator LightOff(float currentLight)
     {
         float elapsedTime = 0f;
-        float startAlpha = brightnessImage.color.a;
-        float targetAlpha = 0.8f; // 亮度从1变为0.2，相当于遮罩的Alpha从0变为0.8
+        float startAlpha = brightnessImage.color.a; // 亮度从1变为0.2，相当于遮罩的Alpha从0变为0.8
 
 
         while (elapsedTime < transitionDuration)

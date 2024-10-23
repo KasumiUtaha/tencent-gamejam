@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Mechanism
   - TextTrigger
+  - HiddenObject
   layers:
   - Default
   - TransparentFX

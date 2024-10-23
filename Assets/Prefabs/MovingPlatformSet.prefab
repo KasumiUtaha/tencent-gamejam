@@ -146,8 +146,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc0260869ba3ff44fab1978eca9f8555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonSet: {fileID: 0}
   setColliderTime: 0
   setColliderAlpha: 0
+  bindingTimePausePress: 0
+  bindingTimePauseRelease: 0
+  bindingColliderOnPress: 0
+  bindingColliderOnRelease: 0
   leftPoint: {fileID: 2916552269728865856}
   rightPoint: {fileID: 8085453291713979126}
   movingSpeed: 3

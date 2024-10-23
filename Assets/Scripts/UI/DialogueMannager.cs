@@ -35,7 +35,6 @@ public class DialogueMannager : MonoBehaviour
         TextTrigger_postion = TextTrigger.transform.position;//获取触发器位置
         dialogueText.text = dialogueLines[currentLine];
         textMeshPro = dialogueTextAsset.GetComponent<TextMeshPro>();
-        Debug.Log(TextTrigger_postion);
 
     }
 
@@ -64,8 +63,8 @@ public class DialogueMannager : MonoBehaviour
                         }
                         else
                         {
-                            dialogueBox.SetActive(false);//隐藏对话框
-                            StopCoroutine(ScollingText());//关闭协程
+                            //dialogueBox.SetActive(false);//隐藏对话框
+                            //StopCoroutine(ScollingText());//关闭协程
                         }
                     }
                 }
@@ -100,7 +99,6 @@ public class DialogueMannager : MonoBehaviour
     {
         isCover = false;
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Debug.Log(mousePosition + "     " + TextTrigger_postion);
         if (mousePosition.x < (TextTrigger_postion.x + dialogueRange) && mousePosition.x > (TextTrigger_postion.x - dialogueRange))
         {
             if(mousePosition.y < (TextTrigger_postion.y + dialogueRange) && mousePosition.y > (TextTrigger_postion.y - dialogueRange))

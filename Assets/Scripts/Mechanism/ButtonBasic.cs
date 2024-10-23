@@ -6,6 +6,7 @@ public class ButtonBasic : MonoBehaviour
 {
     private Collider2D trigger;
     public ButtonSet buttonSet;
+    private Animator animator;
 
     public bool isPressed;
     
@@ -13,6 +14,7 @@ public class ButtonBasic : MonoBehaviour
     private void Awake()
     {
         trigger = GetComponent<Collider2D>();
+        animator = GetComponent<Animator>();
         if (trigger == null || trigger.isTrigger == false)
         {
             Debug.LogWarning("No Trigger");
@@ -22,12 +24,14 @@ public class ButtonBasic : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         isPressed = true;
+        animator.SetBool("isPressed", true);
         buttonSet.CheckAndInvoke(this);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         isPressed = false;
+        animator.SetBool("isPressed", false);
         buttonSet.CheckAndInvoke(this);
     }
 

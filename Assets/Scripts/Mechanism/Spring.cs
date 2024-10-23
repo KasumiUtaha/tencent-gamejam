@@ -9,9 +9,12 @@ public class Spring : Mechanism
     [SerializeField] private float springTime;
     [SerializeField] private float idleTime;
     [SerializeField] private ConfigReader configReader;
+    [SerializeField] private Transform topTransform;
+    public Animator animator;
     bool triggered = false;
     public CharaMove charaMove;
     private List<Vector3> bezierPoint = new List<Vector3>();
+    Coroutine coroutine = null;
 
     private Vector3 GetNextPosition(Vector3 startPosition, Vector3 endPosition, Vector3 middlePosition,float t)
     {
@@ -34,14 +37,33 @@ public class Spring : Mechanism
         }
     }
 
+    IEnumerator Compress(GameObject go)
+    {
+        float t = 0;
+        Vector3 delta = new Vector3(go.transform.position.x - topTransform.position.x, go.transform.localScale.y / 2f, 0);
+        if (go.tag == "Player") delta.y += 0.5f;
+        while(t < idleTime)
+        {
+            t += Time.deltaTime;
+            
+            go.transform.position = topTransform.position + delta;
+            yield return null;
+        }
+        
+        
+    }
+
     IEnumerator MoveGameObject(GameObject go)
     {
         if (go.tag == "Player") charaMove.canMove = false;
         float t = 0;
-        Debug.Log("Start");
         //GetBezierPoint(go.transform.position);
         Vector3 startPosition = go.transform.position;
+        animator.SetBool("isCompressed", true);
+        coroutine = StartCoroutine(Compress(go));
         yield return new WaitForSeconds(idleTime);
+        if (coroutine != null) StopCoroutine(coroutine); 
+        animator.SetBool("isCompressed", false);
         //int i = -1;
         while (t < 1)   
         {
