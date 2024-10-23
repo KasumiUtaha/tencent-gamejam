@@ -21,7 +21,7 @@ public class UIColliderGenerator : MonoBehaviour
         pre_ui_collider = ui_collider;
         buttons = new List<Button>();
         buttonToCol = new Dictionary<Button,BoxCollider2D>();
-        mainCamera ??= Camera.main;
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         if (colliderPrefab == null)
         {
             Debug.LogError("请为 colliderPrefab 赋值一个带有 BoxCollider2D 的预制件。");

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-public class BrightnessManager : UIManager
+public class BrightnessManager : MonoBehaviour
 {
     [SerializeField]
     private Image brightnessImage;
@@ -12,6 +12,7 @@ public class BrightnessManager : UIManager
     [SerializeField]
     private float lightOffLevel;
     // 过渡持续时间（秒）
+    [SerializeField]
     private float transitionDuration = 1f;
 
     public float targetAlpha = 0f;
@@ -86,7 +87,7 @@ public class BrightnessManager : UIManager
     private IEnumerator LightOff(float currentLight)
     {
         float elapsedTime = 0f;
-        float startAlpha = brightnessImage.color.a; // 亮度从1变为0.2，相当于遮罩的Alpha从0变为0.8
+        float startAlpha = currentLight; // 亮度从1变为0.2，相当于遮罩的Alpha从0变为0.8
 
 
         while (elapsedTime < transitionDuration)

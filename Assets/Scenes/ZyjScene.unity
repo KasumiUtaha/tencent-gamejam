@@ -430,6 +430,7 @@ MonoBehaviour:
   rightDetector: {fileID: 1207141545}
   leftDetector: {fileID: 888302771}
   startMoving: 1
+  onPlaneObject: {fileID: 0}
   charaMove: {fileID: 1226440106}
 --- !u!61 &546927775
 BoxCollider2D:
@@ -1207,6 +1208,7 @@ GameObject:
   - component: {fileID: 841891784}
   - component: {fileID: 841891785}
   - component: {fileID: 841891786}
+  - component: {fileID: 841891787}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -1296,6 +1298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brightnessImage: {fileID: 232536554}
   lightOffLevel: 0.2
+  transitionDuration: 1
   targetAlpha: 0
 --- !u!114 &841891786
 MonoBehaviour:
@@ -1310,6 +1313,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenBlurEffect: {fileID: 557047216}
+--- !u!114 &841891787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841891778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d6ebdb7b923c694ab12928e5fe8426b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxCollider2D: {fileID: 0}
+  fadeCanvas: {fileID: 1068881248}
+  targetAlpha: 0
+  transitionDuration: 1
+  sceneTransTime: 1
+  fadeImage: {fileID: 1110483720}
+  levelNames:
+  - Level1
+  - Level2
 --- !u!1 &865354291
 GameObject:
   m_ObjectHideFlags: 0
@@ -1428,6 +1452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brightnessImage: {fileID: 232536554}
   lightOffLevel: 0
+  transitionDuration: 1
   targetAlpha: 0
 --- !u!1 &880238705
 GameObject:
@@ -1673,7 +1698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1068881249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1807,7 +1832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2372,6 +2397,98 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1348978912
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1348978914}
+  - component: {fileID: 1348978913}
+  - component: {fileID: 1348978915}
+  m_Layer: 0
+  m_Name: ChangeTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &1348978913
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348978912}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!4 &1348978914
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348978912}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.35, y: -3.42, z: -0.023611883}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1348978915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348978912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ecaf6375c0795c488eb711f40ddd98f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneManager: {fileID: 841891778}
 --- !u!1 &1376615328
 GameObject:
   m_ObjectHideFlags: 0
@@ -3232,3 +3349,4 @@ SceneRoots:
   - {fileID: 1068881252}
   - {fileID: 2042385461}
   - {fileID: 835010422}
+  - {fileID: 1348978914}
