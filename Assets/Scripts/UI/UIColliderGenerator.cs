@@ -41,19 +41,7 @@ public class UIColliderGenerator : MonoBehaviour
     }
     private void Update()
     {
-        if(ui_collider != pre_ui_collider)
-        {
-            
-            foreach(var but in buttonToCol.Keys)
-            {
-                buttonToCol[but].enabled = ui_collider;
-                if (!but.isActiveAndEnabled)
-                {
-                    buttonToCol[but].enabled = but.gameObject.activeInHierarchy;
-                }
-            }
-            pre_ui_collider = ui_collider;
-        }
+        UpdateCollider();
     }
 
     public void SetUiColliderOn()
@@ -63,6 +51,21 @@ public class UIColliderGenerator : MonoBehaviour
     public void SetUiColliderOff()
     {
         ui_collider = false;
+    }
+
+    private void UpdateCollider()
+    {
+        foreach (var but in buttonToCol.Keys)
+        {
+            if (but.gameObject.activeInHierarchy)
+            {
+                buttonToCol[but].enabled = ui_collider;
+            }
+            else
+            {
+                buttonToCol[but].enabled = false;
+            }
+        }
     }
     void CreateColliderForUIButton(Button uiButton)
     {
