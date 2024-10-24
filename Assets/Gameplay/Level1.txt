@@ -2,6 +2,4 @@ hidden_object=false
 player_move=true
 player_collider=false
 ui_collider=false
-brightness=1
-模糊=false
-字体=JiaGuWenZi
+brightness=0.5
