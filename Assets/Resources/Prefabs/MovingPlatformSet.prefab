@@ -160,7 +160,8 @@ MonoBehaviour:
   rightDetector: {fileID: 2615121973681278691}
   leftDetector: {fileID: 2651518647101273093}
   startMoving: 1
-  charaMove: {fileID: 0}
+  onPlaneObject: {fileID: 0}
+  charaMove: {fileID: 214077756245884433, guid: 4fd2853bfd56c454bafbf2586fd58b6f, type: 3}
 --- !u!1 &3907631156659925700
 GameObject:
   m_ObjectHideFlags: 0

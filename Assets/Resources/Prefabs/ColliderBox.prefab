@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3870238053101229693}
   - component: {fileID: 521276776186525350}
   - component: {fileID: 5306533624362221760}
-  - component: {fileID: 915963991946348627}
   m_Layer: 3
   m_Name: ColliderBox
   m_TagString: Mechanism
@@ -132,22 +131,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &915963991946348627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3812733414690920670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78eb2409734658a489abfd258c37c0c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttonSet: {fileID: 0}
-  setColliderTime: 0.5
-  setColliderAlpha: 0.1
-  bindingTimePausePress: 0
-  bindingTimePauseRelease: 0
-  bindingColliderOnPress: 0
-  bindingColliderOnRelease: 1

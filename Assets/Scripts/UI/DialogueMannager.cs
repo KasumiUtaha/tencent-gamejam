@@ -19,7 +19,8 @@ public class DialogueMannager : MonoBehaviour
 
     public int textCount = 0;//文本框出现次数
     public RectTransform DBtransform;//文本框的位置
-    public float dialogueRange = 0.5f;
+    public float dialogueRangeX = 0.5f;
+    public float dialogueRangeY = 0.5f;
 
     Vector3 mousePosition;//鼠标位置
     Vector3 TextTrigger_postion;//触发器位置
@@ -110,9 +111,9 @@ public class DialogueMannager : MonoBehaviour
     {
         isCover = false;
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (mousePosition.x < (TextTrigger_postion.x + dialogueRange) && mousePosition.x > (TextTrigger_postion.x - dialogueRange))
+        if (mousePosition.x < (TextTrigger_postion.x + dialogueRangeX) && mousePosition.x > (TextTrigger_postion.x - dialogueRangeX))
         {
-            if(mousePosition.y < (TextTrigger_postion.y + dialogueRange) && mousePosition.y > (TextTrigger_postion.y - dialogueRange))
+            if(mousePosition.y < (TextTrigger_postion.y + dialogueRangeY) && mousePosition.y > (TextTrigger_postion.y - dialogueRangeY))
                 isCover = true;
             else
                 isCover = false;
@@ -124,6 +125,7 @@ public class DialogueMannager : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(TextTrigger.transform.position, Vector3.one * dialogueRange);
+        Vector3 vector3 = new Vector3(dialogueRangeX, dialogueRangeY, 1);
+        Gizmos.DrawWireCube(TextTrigger.transform.position, vector3);
     }
 }

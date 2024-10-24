@@ -13,9 +13,9 @@ public class CharaAnim : MonoBehaviour
 
     private void Update()
     {
-        Vector3 scale = transform.localScale;
+        Vector3 scale = transform.parent.transform.localScale;
         scale.x = Mathf.Abs(scale.x);
         scale.x = scale.x * charaMove.direction;
-        transform.localScale = scale;
+        transform.parent.transform.localScale = scale;
     }
 }
