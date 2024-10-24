@@ -2,4 +2,4 @@ hidden_object=false
 player_move=true
 player_collider=false
 ui_collider=false
-brightness=0.01
+brightness=0.5
