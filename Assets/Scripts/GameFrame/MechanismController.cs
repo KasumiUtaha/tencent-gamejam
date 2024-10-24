@@ -64,7 +64,14 @@ public class MechanismController : MonoBehaviour
         foreach (GameObject go in gameObjects)
         {
             if (go != null)
+            {
+                if(go.GetComponent<Mechanism>() == null)
+                {
+                    Debug.Log(go.name);
+                }
                 go.GetComponent<Mechanism>().SetColliderOff();
+            }
+                
         }
     }
 
