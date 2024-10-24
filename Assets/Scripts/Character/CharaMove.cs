@@ -8,6 +8,7 @@ public class CharaMove : MonoBehaviour
     public float jumpHeight;
     public float moveSpeed;
     public float moveSpeedAir;
+    public float gravityScale = 1f;
 
     public Transform groundDetector1;
     public Transform groundDetector2;
@@ -38,6 +39,7 @@ public class CharaMove : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         circleCollider = GetComponent<Collider2D>();
+        gravityScale = rb.gravityScale;
     }
 
     // Update is called once per frame
