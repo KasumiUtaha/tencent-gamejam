@@ -1230,6 +1230,30 @@ Transform:
   - {fileID: 424303229}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1193101401 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3812733414690920670, guid: 824d71a9bad036d43855a5e0b55b2dcb, type: 3}
+  m_PrefabInstance: {fileID: 9104526708893037169}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1193101406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193101401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78eb2409734658a489abfd258c37c0c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSet: {fileID: 0}
+  setColliderTime: 0.5
+  setColliderAlpha: 0.1
+  bindingTimePausePress: 0
+  bindingTimePauseRelease: 0
+  bindingColliderOnPress: 0
+  bindingColliderOnRelease: 0
 --- !u!1 &1200867407
 GameObject:
   m_ObjectHideFlags: 0
@@ -1407,7 +1431,7 @@ MonoBehaviour:
   originFileText:
   - hidden_object=false
   - player_move=true
-  - player_collider=false
+  - player_collider=true
   - ui_collider=false
   - brightness=1
   - "\u6A21\u7CCA=false"
@@ -2588,7 +2612,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3812733414690920670, guid: 824d71a9bad036d43855a5e0b55b2dcb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1193101406}
   m_SourcePrefab: {fileID: 100100000, guid: 824d71a9bad036d43855a5e0b55b2dcb, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
