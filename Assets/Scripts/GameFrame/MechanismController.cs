@@ -22,7 +22,10 @@ public class MechanismController : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        
+        gameObjects = GameObject.FindGameObjectsWithTag("Mechanism");
+        hiddenObjects = GameObject.FindGameObjectsWithTag("HiddenObject");
+        charaMove = GameObject.FindGameObjectWithTag("Player").GetComponent<CharaMove>();
+        configReader = GameObject.Find("Scene").GetComponentInChildren<ConfigReader>();
     }
 
     public void Update()
@@ -61,6 +64,7 @@ public class MechanismController : MonoBehaviour
 
     public void SetColliderOff()
     {
+        Debug.Log(gameObjects.Length);
         foreach (GameObject go in gameObjects)
         {
             if (go != null)
@@ -69,6 +73,7 @@ public class MechanismController : MonoBehaviour
                 {
                     Debug.Log(go.name);
                 }
+                
                 go.GetComponent<Mechanism>().SetColliderOff();
             }
                     

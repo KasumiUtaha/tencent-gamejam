@@ -21,7 +21,7 @@ public class Ice : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+
         iceScale = iceGround.transform.lossyScale; 
         icePosition = iceGround.transform.position;
         onIceCount = 0;
@@ -39,7 +39,7 @@ public class Ice : MonoBehaviour
 
     public void isOnice()
     {
-        if (playerPosition.y > icePosition.y)
+        if (playerPosition.y > icePosition.y && playerPosition.y <= icePosition.y + cM.jumpHeight + 1f)
         {
             if (icePosition.x + (iceScale.x / 2) >= playerPosition.x && icePosition.x - (iceScale.x / 2) <= playerPosition.x)
             {

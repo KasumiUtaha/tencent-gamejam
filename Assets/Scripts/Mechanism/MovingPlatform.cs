@@ -50,7 +50,10 @@ public class MovingPlatform : Mechanism
             else if (transform.position.x + direction * adjustLength <= leftPoint.position.x) direction = 1;
             //if (ColliderDetect()) direction = -direction;
             Vector3 moveDirection = direction == 1 ? Vector3.right : Vector3.left;
-            if(onPlane) charaMove.onPlaneVelocity = movingSpeed * direction;
+            if(onPlane) 
+            {
+                charaMove.onPlaneVelocity = movingSpeed * direction;
+            }
             transform.Translate(moveDirection * movingSpeed * Time.deltaTime);
             yield return null;
         }
@@ -58,12 +61,14 @@ public class MovingPlatform : Mechanism
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        
         if (collision.gameObject.layer == 6 && collision.gameObject.transform.position.y > transform.position.y) onPlane = true;
         else if (collision.gameObject.transform.position.y > transform.position.y)
         {
             onPlaneObject = collision.gameObject;
             collision.gameObject.transform.SetParent(transform);
         }
+        Debug.Log(onPlane);
     }
 
     private void OnCollisionExit2D(Collision2D collision)
