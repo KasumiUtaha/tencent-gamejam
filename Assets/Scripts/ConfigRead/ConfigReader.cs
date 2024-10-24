@@ -24,7 +24,7 @@ public class ConfigReader : MonoBehaviour
     [SerializeField] private DialogueMannager dialogueMannager;
     public List<string> originFileText = new List<string>();
     private DateTime currentModified = DateTime.MinValue;
-    public GameObject ice;
+    public List<GameObject> ice;
 
 
     private void Awake()

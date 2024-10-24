@@ -99,6 +99,7 @@ public class MechanismController : MonoBehaviour
 
     public void SetTimeStart()
     {
+
         configReader.time_pause = false;
         if (charaMove)
         {

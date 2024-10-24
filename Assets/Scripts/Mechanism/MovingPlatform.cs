@@ -68,7 +68,6 @@ public class MovingPlatform : Mechanism
             onPlaneObject = collision.gameObject;
             collision.gameObject.transform.SetParent(transform);
         }
-        Debug.Log(onPlane);
     }
 
     private void OnCollisionExit2D(Collision2D collision)

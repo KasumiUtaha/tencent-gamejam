@@ -140,7 +140,7 @@ public class ChangeSceneManager : UIManager
         // 确保背景和标题完全消失
         fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, targetAlpha);
         title.color = new Color(title.color.r, title.color.g, title.color.b, targetAlpha);
-
+        fadeCanvas.SetActive(false);
         currentTransition = null;
     }
 

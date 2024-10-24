@@ -16,13 +16,13 @@ public class MenuManager : UIManager
     protected override void Start()
     {
         base.Start();
-        MenuClose();
         timePause = true;
     }
 
     protected override void Update()
     {
         base.Update();
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
 
@@ -58,7 +58,6 @@ public class MenuManager : UIManager
     }
     public void MenuOpen()
     {
-
         TimePause();
         menu.SetActive(true);
     }
