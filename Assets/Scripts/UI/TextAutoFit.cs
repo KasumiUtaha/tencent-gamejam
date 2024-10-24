@@ -18,18 +18,30 @@ public class TextAutoFit : MonoBehaviour
     public float len;//当前字数
     public float zoom;//非汉字的比例
 
+    public GameObject image1;
+    public GameObject image2;
+    public GameObject image3;
+
     public void Update()
     {
         len = GetLength(text.text);
-        if (len <= LineMaxNum)
+        if(len <= 2*LineMaxNum)
         {
-            plane.GetComponent<RectTransform>().sizeDelta =
-            new Vector2(LineMinWidth + LineDertaWidth * len, LineMinHeight);
+            image1.SetActive(true);
+            image2.SetActive(false);
+            image3.SetActive(false);  
+        }
+        else if(len <= 4*LineMaxNum)
+        {
+            image1.SetActive(false);
+            image2.SetActive(true);
+            image3.SetActive(false);
         }
         else
         {
-            plane.GetComponent<RectTransform>().sizeDelta =
-            new Vector2(LineMinWidth + LineDertaWidth * LineMaxNum, LineMinHeight + LineDertaHeight * (int)(len / LineMaxNum));
+            image1.SetActive(false);
+            image2.SetActive(false);
+            image3.SetActive(true);
         }
     }
 

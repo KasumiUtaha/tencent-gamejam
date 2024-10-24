@@ -24,7 +24,7 @@ public class ConfigReader : MonoBehaviour
     [SerializeField] private DialogueMannager dialogueMannager;
     public List<string> originFileText = new List<string>();
     private DateTime currentModified = DateTime.MinValue;
-
+    public GameObject ice;
 
 
     private void Awake()
@@ -169,6 +169,10 @@ public class ConfigReader : MonoBehaviour
             {
                 dialogueMannager.ChangeFont2();
             }
+        }
+        else if (lineText.Contains("friction"))
+        {
+            
         }
     }
 
