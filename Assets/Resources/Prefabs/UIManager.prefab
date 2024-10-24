@@ -131,6 +131,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
   colliderPrefab: {fileID: 501108610576079654}
+  menuFrameImage: {fileID: 0}
+  frameAlpha: 0.3
   ui_collider: 0
 --- !u!114 &7901640887069996758
 MonoBehaviour:
@@ -219,6 +221,4 @@ MonoBehaviour:
   title: {fileID: 0}
   titleGameObject: {fileID: 0}
   blackChangeTime: 1
-  levelNames:
-  - Level1
-  - Level2
+  levelNames: []

@@ -1,11 +1,5 @@
 hidden_object=false
 player_move=true
-player_collider=true
+player_collider=false
 ui_collider=false
-<<<<<<< HEAD
 brightness=0.5
-=======
-brightness=1
-模糊=false
-字体=Normal
->>>>>>> 070fb5e86762722a1e42af6f98cb954fd4fa2048

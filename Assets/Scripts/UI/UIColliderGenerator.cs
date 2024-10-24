@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
+using Image = UnityEngine.UI.Image;
+using Unity.VisualScripting;
 
 public class UIColliderGenerator : MonoBehaviour
 {
@@ -11,8 +13,10 @@ public class UIColliderGenerator : MonoBehaviour
     public Camera mainCamera; // 主摄像机
     public GameObject colliderPrefab; // 用于生成碰撞体的预制件
     private List<Button> buttons;
-    [SerializeField]
     private Dictionary<Button,BoxCollider2D> buttonToCol;
+    [SerializeField]
+    private Image menuFrameImage;
+    public float frameAlpha;
     public bool ui_collider;//暴露的字段
     private bool pre_ui_collider;
     void Start()
@@ -42,11 +46,12 @@ public class UIColliderGenerator : MonoBehaviour
     private void Update()
     {
         UpdateCollider();
+        UpdateFrame();
     }
 
     public void SetUiColliderOn()
     {
-        ui_collider=true;
+        ui_collider = true;
     }
     public void SetUiColliderOff()
     {
@@ -65,6 +70,17 @@ public class UIColliderGenerator : MonoBehaviour
             {
                 buttonToCol[but].enabled = false;
             }
+        }
+    }
+    private void UpdateFrame()
+    {
+        if (ui_collider)
+        {
+            menuFrameImage.color = menuFrameImage.color.WithAlpha(frameAlpha);
+        }
+        else
+        {
+            menuFrameImage.color = menuFrameImage.color.WithAlpha(1f);
         }
     }
     void CreateColliderForUIButton(Button uiButton)

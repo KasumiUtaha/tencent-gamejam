@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class MenuManager : UIManager
 {
-
     [SerializeField]
     private GameObject menu;
     private bool timePause;
+
     public void SetTimePause(bool flag)
     {
         timePause = flag;
@@ -16,12 +17,20 @@ public class MenuManager : UIManager
     protected override void Start()
     {
         base.Start();
+        if (menu == null)
+        {
+            Debug.LogError("menu is not assigned in the inspector!");
+        }
         MenuClose();
         timePause = true;
     }
 
     protected override void Update()
     {
+        if (menu == null)
+        {
+            Debug.LogError("menu is not assigned in the inspector!");
+        }
         base.Update();
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -56,15 +65,24 @@ public class MenuManager : UIManager
     {
         MechanismController.instance.SetTimeStart();
     }
-    public void MenuOpen()
+    private void MenuOpen()
     {
 
         TimePause();
         menu.SetActive(true);
     }
+
     public void MenuClose()
     {
         TimeReturn();
-        menu.SetActive(false);
+        if (menu != null)
+        {
+            menu.SetActive(false);
+            Debug.Log("menu Close");
+        }
+        else
+        {
+            Debug.Log("NO menu");
+        }
     }
 }

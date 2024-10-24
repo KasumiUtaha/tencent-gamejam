@@ -1425,7 +1425,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5ff76b6e9bdec6e4ab121b861fe534fa, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1458,6 +1458,13 @@ MonoBehaviour:
     m_Bits: 8
   groundDetectDis: 0.05
   onPlaneVelocity: 0
+<<<<<<< HEAD
+=======
+  canMove: 1
+  player_move: 1
+  onIce: 0
+  rb: {fileID: 2064369119}
+>>>>>>> 6cd2760dd64fb999901d9a21e765bf5b53bc0c03
 --- !u!70 &2064369121
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
