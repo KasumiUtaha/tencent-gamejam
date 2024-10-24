@@ -66,7 +66,7 @@ public class MoveDoor : Mechanism
         {
             StopCoroutine(coroutine);
         }
-        StartCoroutine(Move(destination.position));
+        coroutine = StartCoroutine(Move(destination.position));
     }
 
     void MoveToOriginPosition()
@@ -75,7 +75,7 @@ public class MoveDoor : Mechanism
         {
             StopCoroutine(coroutine);
         }
-        StartCoroutine(Move(originPosition));
+        coroutine = StartCoroutine(Move(originPosition));
     }
 
     IEnumerator Move(Vector3 targetPositon)

@@ -71,7 +71,7 @@ public class MechanismController : MonoBehaviour
                 }
                 go.GetComponent<Mechanism>().SetColliderOff();
             }
-                
+                    
         }
     }
 
@@ -99,7 +99,7 @@ public class MechanismController : MonoBehaviour
         {
             charaMove.canMove = true;
 
-            charaMove.GetComponent<Rigidbody2D>().gravityScale = 1;
+            charaMove.GetComponent<Rigidbody2D>().gravityScale = charaMove.gravityScale;
         }
 
         foreach (GameObject go in gameObjects)

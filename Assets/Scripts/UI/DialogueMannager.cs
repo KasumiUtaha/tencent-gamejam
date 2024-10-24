@@ -25,7 +25,7 @@ public class DialogueMannager : MonoBehaviour
     Vector3 mousePosition;//鼠标位置
     Vector3 TextTrigger_postion;//触发器位置
 
-    bool isCover = false;//鼠标位置是否到达指定区域
+    public bool isCover = false;//鼠标位置是否到达指定区域
     bool isScolling; //是否滚动 判断状态
 
     [SerializeField] private float textScollingIntervalTime;//滚动间隔
@@ -107,7 +107,7 @@ public class DialogueMannager : MonoBehaviour
         isScolling = false;
     }
 
-    private void MousePosition()//判断鼠标是否在触发器里面
+    public void MousePosition()//判断鼠标是否在触发器里面
     {
         isCover = false;
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -125,7 +125,7 @@ public class DialogueMannager : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Vector3 vector3 = new Vector3(dialogueRangeX, dialogueRangeY, 1);
+        Vector3 vector3 = new Vector3(dialogueRangeX * 2f, dialogueRangeY * 2f, 1);
         Gizmos.DrawWireCube(TextTrigger.transform.position, vector3);
     }
 }
