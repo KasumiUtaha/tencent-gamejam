@@ -2446,9 +2446,9 @@ MonoBehaviour:
   LineDertaHeight: 250
   len: 0
   zoom: 0.56
-  image1: {fileID: 0}
-  image2: {fileID: 0}
-  image3: {fileID: 0}
+  image1: {fileID: 29154169}
+  image2: {fileID: 182492660}
+  image3: {fileID: 1702118438}
 --- !u!1001 &2300663747217847409
 PrefabInstance:
   m_ObjectHideFlags: 0
