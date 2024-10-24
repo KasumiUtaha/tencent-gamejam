@@ -4,4 +4,4 @@ player_collider=false
 ui_collider=false
 brightness=1
 模糊=false
-字体=JiaGuWenZi
+字体=Normal
