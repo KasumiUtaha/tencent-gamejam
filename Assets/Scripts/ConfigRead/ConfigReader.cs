@@ -38,9 +38,13 @@ public class ConfigReader : MonoBehaviour
             allText += "\n";
         }
         File.WriteAllText(path, allText);
-        lastModified = File.GetLastWriteTime(path);
-        StartConfig();
+        lastModified = File.GetLastWriteTime(path);   
         //ReadConfig();
+    }
+
+    private void Start()
+    {
+        StartConfig();
     }
 
     void StartConfig()

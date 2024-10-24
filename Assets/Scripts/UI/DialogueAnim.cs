@@ -34,7 +34,7 @@ public class DialogueAnim : MonoBehaviour
                 StartCoroutine(Image2Appear());
                 isMouseInTrigger = true;
             }
-            else if (Input.GetMouseButtonDown(0))
+            else if (Input.GetMouseButtonDown(0) && !Image3.activeInHierarchy)
             {
                 Image2.SetActive(false);
                 Image3.SetActive(true);
@@ -95,20 +95,20 @@ public class DialogueAnim : MonoBehaviour
     IEnumerator Speaking()
     {
         float t = 0;
-        int count = 0;
+        Debug.Log("Start");
         while (true)
         {
             while (!isSpeaking)
             {
+                t = 0;
                 Image3.SetActive(true);
                 yield return null;
             }
             t += Time.deltaTime;
-            
-            if(t > count * speakDeltaTime)
+            if(t > speakDeltaTime)
             {
-                count++;
                 Image3.SetActive(!Image3.activeInHierarchy);
+                t = 0;
             }
             yield return null;
         }
