@@ -241,14 +241,20 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "3-\u6309\u952Ex2_0": -4312131022469056041
+      "3-\u6309\u952Ex2_1": -4322337571878417531
+      "3-\u6309\u952Ex2_2": 821082391047901256
+      "3-\u6309\u952Ex2_3": 3971197627955100385
+      "3-\u6309\u952Ex2_4": 4339238495728264283
+      "3-\u6309\u952Ex2_5": 4578487558855899310
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

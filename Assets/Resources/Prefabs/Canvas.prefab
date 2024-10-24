@@ -1139,6 +1139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brightnessImage: {fileID: 3517919280287041915}
   lightOffLevel: 0
+  transitionDuration: 1
   targetAlpha: 0
 --- !u!1 &6926682736909703242
 GameObject:

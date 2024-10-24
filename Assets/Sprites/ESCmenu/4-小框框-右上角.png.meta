@@ -121,14 +121,15 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "4-\u5C0F\u6846\u6846-\u53F3\u4E0A\u89D2_0": 7305742776283697370
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
