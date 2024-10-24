@@ -31,11 +31,13 @@ public class DialogueMannager : MonoBehaviour
     [SerializeField] private float textScollingIntervalTime;//滚动间隔
     [SerializeField] private float StartIntervalTime;//初始间隔
 
+    private DialogueAnim dialogueAnim;
+
     void Start()
     {
         
         TextTrigger_postion = TextTrigger.transform.position;//获取触发器位置
-
+        dialogueAnim = GetComponent<DialogueAnim>();
 
     }
 
@@ -95,6 +97,7 @@ public class DialogueMannager : MonoBehaviour
         isScolling = true;
         dialogueText.text = " ";//保证开始时文本一定为空
         //将每个字符拆分开来 存在一个数组中
+        dialogueAnim.isSpeaking = true;
         foreach(char letter in dialogueLines[currentLine].ToCharArray())
         {
             dialogueText.text += letter;//一个字母一个字母显示出来
@@ -104,6 +107,7 @@ public class DialogueMannager : MonoBehaviour
                 break;
             }
         }
+        dialogueAnim.isSpeaking = false;
         isScolling = false;
     }
 

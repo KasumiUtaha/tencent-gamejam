@@ -86,7 +86,7 @@ public class ConfigReader : MonoBehaviour
             {
                 player_move = true;
                 charaMove.canMove = true;
-                charaMove.GetComponent<Rigidbody2D>().gravityScale = 1;
+                charaMove.GetComponent<Rigidbody2D>().gravityScale = charaMove.gravityScale;
             }
             else if (lineText.Contains("false"))
             {

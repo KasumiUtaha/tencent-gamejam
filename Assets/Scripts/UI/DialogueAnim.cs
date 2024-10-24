@@ -9,25 +9,38 @@ public class DialogueAnim : MonoBehaviour
 
     public float image2AppearTime = 0.2f;
     public float image2ApperaDis = -0.1f;
+    public float speakDeltaTime = 0.1f;
+    public bool isSpeaking = false;
     public GameObject Image1;
     public GameObject Image2;
+    public GameObject Image3;
+    public GameObject Image4;
+    private Vector3 image2OriginPosition;
 
     private void Start()
     {
         mannager  = GetComponent<DialogueMannager>();
+        image2OriginPosition = Image2.transform.position;
     }
 
     private void Update()
     {
         if (mannager.isCover)
         {
-            if(isMouseInTrigger == false)
+            if (isMouseInTrigger == false)
             {
                 Image1.SetActive(false);
                 Image2.SetActive(true);
                 StartCoroutine(Image2Appear());
-                isMouseInTrigger=true;
-            }     
+                isMouseInTrigger = true;
+            }
+            else if (Input.GetMouseButtonDown(0))
+            {
+                Image2.SetActive(false);
+                Image3.SetActive(true);
+                Image4.SetActive(true);
+                StartCoroutine(Speaking());
+            }
         }
         else
         {
@@ -35,6 +48,15 @@ public class DialogueAnim : MonoBehaviour
             {
                 StartCoroutine(Image2Disappear());
                 isMouseInTrigger = false;
+            }
+            else
+            {
+                Image3.SetActive(false);
+                Image4.SetActive(false);
+                Image1.SetActive(true);
+                isMouseInTrigger = false;
+                StopAllCoroutines();
+                Image2.transform.position = image2OriginPosition;
             }
         }
     }
@@ -68,5 +90,28 @@ public class DialogueAnim : MonoBehaviour
         }
         Image2.SetActive(false);
         Image1.SetActive(true);
+    }
+
+    IEnumerator Speaking()
+    {
+        float t = 0;
+        int count = 0;
+        while (true)
+        {
+            while (!isSpeaking)
+            {
+                Image3.SetActive(true);
+                yield return null;
+            }
+            t += Time.deltaTime;
+            
+            if(t > count * speakDeltaTime)
+            {
+                count++;
+                Image3.SetActive(!Image3.activeInHierarchy);
+            }
+            yield return null;
+        }
+
     }
 }
