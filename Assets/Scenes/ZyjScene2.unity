@@ -724,17 +724,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1570647542381717696}
     - target: {fileID: 5693003916615824225, guid: 9d34596509541964990894027ae59ef6, type: 3}
-      propertyPath: frameAlpha
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5693003916615824225, guid: 9d34596509541964990894027ae59ef6, type: 3}
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1866267737}
-    - target: {fileID: 5693003916615824225, guid: 9d34596509541964990894027ae59ef6, type: 3}
-      propertyPath: ui_collider
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5693003916615824225, guid: 9d34596509541964990894027ae59ef6, type: 3}
       propertyPath: menuFrameImage
       value: 
@@ -756,21 +748,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1729319480}
     - target: {fileID: 7003643124470996592, guid: 9d34596509541964990894027ae59ef6, type: 3}
-      propertyPath: blackChangeTime
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7003643124470996592, guid: 9d34596509541964990894027ae59ef6, type: 3}
       propertyPath: titleGameObject
       value: 
       objectReference: {fileID: 1543351539}
-    - target: {fileID: 7003643124470996592, guid: 9d34596509541964990894027ae59ef6, type: 3}
-      propertyPath: blackContinueTime
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7003643124470996592, guid: 9d34596509541964990894027ae59ef6, type: 3}
-      propertyPath: levelNames.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7901640887069996758, guid: 9d34596509541964990894027ae59ef6, type: 3}
       propertyPath: menu
       value: 
