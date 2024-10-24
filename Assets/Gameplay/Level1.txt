@@ -1,6 +1,6 @@
 hidden_object=false
 player_move=true
-player_collider=false
+player_collider=true
 ui_collider=false
 brightness=1
 模糊=false

@@ -50,6 +50,16 @@ public class MoveDoor : Mechanism
     {
         isTimePause = false;
     }
+
+    public override void SetColliderOff()
+    {
+        return;
+    }
+    public override void SetColliderOn()
+    {
+        return;
+    }
+
     void MoveToDestination()
     {
         if(coroutine != null)
