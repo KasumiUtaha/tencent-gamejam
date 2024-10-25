@@ -50,7 +50,6 @@ public class Ice : MonoBehaviour
 
             else
             {
-                Debug.Log(cM.onIce);
                 if (cM.onIce)
                 {
 

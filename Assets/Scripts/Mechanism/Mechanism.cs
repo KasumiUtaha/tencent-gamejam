@@ -6,7 +6,7 @@ using UnityEngine;
 public class Mechanism : MonoBehaviour
 {
     public ButtonSet buttonSet;
-    private SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
     [SerializeField] private float setColliderTime = 0.5f;
     [SerializeField] private float setColliderAlpha = 0.1f;
     protected Collider2D mechanismCollider;
@@ -19,7 +19,6 @@ public class Mechanism : MonoBehaviour
 
     protected void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
         gameObject.TryGetComponent<Collider2D>(out mechanismCollider);
         BindButton();
     }

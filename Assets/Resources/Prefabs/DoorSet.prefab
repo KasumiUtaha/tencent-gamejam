@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonSet: {fileID: 8277660706766204995}
+  spriteRenderer: {fileID: 0}
   setColliderTime: 0.5
   setColliderAlpha: 0.1
   bindingTimePausePress: 0
@@ -143,13 +144,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2949843266504959996}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.016781807, y: -0.012578564, z: -4.465663}
-  m_LocalScale: {x: 0.03765213, y: 0.14015625, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.016781807, y: -0.062, z: -4.465663}
+  m_LocalScale: {x: 0.1927219, y: 0.06655833, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8828085153967881806}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &179266706632999274
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -188,10 +189,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1975506407
+  m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c76be34c17f1888499803b0ee33644b9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 73a01e4c791e0c74a93b43f9eac5847f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
