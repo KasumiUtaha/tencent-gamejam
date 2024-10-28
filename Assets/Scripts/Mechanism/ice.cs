@@ -16,7 +16,6 @@ public class Ice : MonoBehaviour
     Vector3 icePosition;
     Vector3 playerPosition;
     Vector2 dir;
-    int onIceCount;
     public float speedX;
 
     void Start()
@@ -24,22 +23,18 @@ public class Ice : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         iceScale = iceGround.transform.lossyScale; 
         icePosition = iceGround.transform.position;
-        onIceCount = 0;
-        dir = Vector2.zero;
     }
     
     void Update()
     {
-        
-
         playerPosition = player.transform.position;
         isOnice();
-   
     }
 
     public void isOnice()
     {
-        if (playerPosition.y > icePosition.y)
+        
+        if (playerPosition.y > icePosition.y && playerPosition.y < icePosition.y + 2f)
         {
             if (icePosition.x + (iceScale.x / 2) >= playerPosition.x && icePosition.x - (iceScale.x / 2) <= playerPosition.x)
             {
@@ -47,44 +42,21 @@ public class Ice : MonoBehaviour
                 cM.canMove = false;
                 cM.rb.velocityX = speedX * cM.direction;
             }
-
             else
             {
                 Debug.Log(cM.onIce);
                 if (cM.onIce)
                 {
-
                     cM.onIce = false;
                     cM.canMove = true;
                 }
             }
         }
-        
     }
-    //public void isDash()
-    //{
-    //    if (playerPosition.y > icePosition.y)
-    //    {
-    //        if (icePosition.x + (iceScale.x / 2) == playerPosition.x || icePosition.x - (iceScale.x / 2) == playerPosition.x)
-    //        {
-    //            //if (onIceCount == 0)
-    //            //{
-    //            //    //Dash( );
-    //            //}
-    //            onIceCount++;
-    //            //if (onIceCount == 1)
-    //            //{
-    //            //    rb.constraints = RigidbodyConstraints2D.FreezePosition;
-    //            //    rb.constraints = ~RigidbodyConstraints2D.FreezePosition;
-    //            //}
-    //            //if(onIceCount > 1 )
-    //            //{
-    //            //    onIceCount = 0;
-    //            //}
-    //        }
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
 
-    //    }
-    //}
-
-    
+        Gizmos.DrawWireCube(iceGround.transform.position, Vector3.one * 2f);
+    }
 }
