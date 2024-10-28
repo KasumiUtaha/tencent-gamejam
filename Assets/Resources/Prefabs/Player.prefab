@@ -183,6 +183,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charaMove: {fileID: 214077756245884433}
+  animator: {fileID: 0}
+  isMoving: 0
+  sit: 0
+  standTime: 5
+  nowTime: 0
 --- !u!1 &6009304485055050366
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,6 +200,7 @@ GameObject:
   - component: {fileID: 214077756245884433}
   - component: {fileID: 8245027528634063988}
   - component: {fileID: 2462332689490687852}
+  - component: {fileID: 4287987919533979832}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -235,6 +241,8 @@ MonoBehaviour:
   jumpHeight: 1
   moveSpeed: 5
   moveSpeedAir: 3
+  gravityScale: 1
+  charaAnim: {fileID: 0}
   groundDetector1: {fileID: 3807836880179700452}
   groundDetector2: {fileID: 9110040763580344805}
   groundLayer:
@@ -310,3 +318,16 @@ CapsuleCollider2D:
   m_Offset: {x: 0.050295353, y: -0.1257379}
   m_Size: {x: 1.1035433, y: 1.6538377}
   m_Direction: 0
+--- !u!114 &4287987919533979832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6009304485055050366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea43b31bda3c8cd47b19fc7b3c5dee2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onIceCount: 0
