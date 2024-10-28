@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class IceCollider : MonoBehaviour
 {
+    public Ice ice;
     public int onIceCount;
     void Start()
     {
@@ -14,9 +15,17 @@ public class IceCollider : MonoBehaviour
         if (collision.GetComponent<Collider2D>().name == "Collider")
             onIceCount++;
     }
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.GetComponent<Collider2D>().name == "Collider")
+            onIceCount=0;
+    }
 
     void Update()
     {
+        Debug.Log(onIceCount);
         
+        
+
     }
 }
