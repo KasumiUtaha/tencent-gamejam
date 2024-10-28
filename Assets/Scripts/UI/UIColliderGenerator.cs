@@ -76,11 +76,15 @@ public class UIColliderGenerator : MonoBehaviour
     {
         if (ui_collider)
         {
-            menuFrameImage.color = menuFrameImage.color.WithAlpha(frameAlpha);
+            Color newColor = menuFrameImage.color;
+            newColor.a = frameAlpha;
+            menuFrameImage.color = newColor;
         }
         else
         {
-            menuFrameImage.color = menuFrameImage.color.WithAlpha(1f);
+            Color newColor = menuFrameImage.color;
+            newColor.a = 1f;
+            menuFrameImage.color = newColor;
         }
     }
     void CreateColliderForUIButton(Button uiButton)

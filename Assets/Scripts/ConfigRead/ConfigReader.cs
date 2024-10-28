@@ -29,8 +29,10 @@ public class ConfigReader : MonoBehaviour
 
     private void Awake()
     {
-        path = Application.dataPath + "/Gameplay/" + textAsset.name + ".txt";
-        
+        string cd = Directory.GetCurrentDirectory();
+        path = cd + "\\Gameplay\\"+ textAsset.name + ".txt";
+
+
         string allText = "";
         foreach (string originFile in originFileText)
         {
@@ -44,7 +46,9 @@ public class ConfigReader : MonoBehaviour
 
     private void Start()
     {
+        MechanismController.instance.Update();
         StartConfig();
+        Screen.SetResolution(1920, 1080, false);
     }
 
     void StartConfig()
@@ -60,8 +64,9 @@ public class ConfigReader : MonoBehaviour
  
     private void Update()
     {
-
+        string s = File.ReadAllText(path);
         // Debug.Log(currentModified + "   " + lastModified + "   " + path);
+        /*
          currentModified = File.GetLastWriteTime(path);
          if (currentModified != lastModified)
          {
@@ -69,8 +74,13 @@ public class ConfigReader : MonoBehaviour
              ReadConfig();
              lastModified = currentModified;
          }
+        */
+        string[] st = s.Split('\n');
+        foreach (string st2 in st)
+        {
+            Parse(st2);
+        }
 
- 
     }
 
     void ReadConfig()

@@ -73,7 +73,7 @@ public class MechanismController : MonoBehaviour
                 {
                     Debug.Log(go.name);
                 }
-                
+                Debug.Log(go.name);
                 go.GetComponent<Mechanism>().SetColliderOff();
             }
                     

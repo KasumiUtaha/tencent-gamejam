@@ -58,6 +58,7 @@ public class DialogueAnim : MonoBehaviour
                 StopAllCoroutines();
                 Image2.transform.position = image2OriginPosition;
             }
+            Image2.SetActive (false);
         }
     }
     

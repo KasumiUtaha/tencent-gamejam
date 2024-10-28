@@ -62,7 +62,7 @@ public class Mechanism : MonoBehaviour
     virtual public void SetColliderOff()
     {
         if (!mechanismCollider) return;
-        mechanismCollider.isTrigger = true;
+        mechanismCollider.enabled = false;
         if(changeColoerCoroutine != null )
         {
             StopCoroutine( changeColoerCoroutine );
@@ -73,7 +73,7 @@ public class Mechanism : MonoBehaviour
     virtual public void SetColliderOn()
     {
         if (!mechanismCollider) return;
-        mechanismCollider.isTrigger = false;
+        mechanismCollider.enabled = true;
         if (changeColoerCoroutine != null)
         {
             StopCoroutine(changeColoerCoroutine);

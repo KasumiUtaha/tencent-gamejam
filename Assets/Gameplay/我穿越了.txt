@@ -1,5 +1,7 @@
 hidden_object=false
 player_move=true
-player_collider=false
+player_collider=true
 ui_collider=false
-brightness=1
+brightness=0.5
+字体=Normal
+
