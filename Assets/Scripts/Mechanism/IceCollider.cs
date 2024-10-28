@@ -23,9 +23,6 @@ public class IceCollider : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(onIceCount);
-        
-        
-
+        //Debug.Log(onIceCount);
     }
 }
