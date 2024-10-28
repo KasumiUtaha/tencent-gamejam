@@ -7,7 +7,7 @@ public class MechanismController : MonoBehaviour
 {
     public static MechanismController instance;
     public GameObject[] gameObjects;
-    public List<GameObject> hiddenObjects;
+    public GameObject[] hiddenObjects;
     [SerializeField] private ConfigReader configReader;
     public CharaMove charaMove;
 
@@ -23,12 +23,24 @@ public class MechanismController : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         gameObjects = GameObject.FindGameObjectsWithTag("Mechanism");
+        hiddenObjects = GameObject.FindGameObjectsWithTag("HiddenObject");
+        charaMove = GameObject.FindGameObjectWithTag("Player").GetComponent<CharaMove>();
+        configReader = GameObject.Find("Scene").GetComponentInChildren<ConfigReader>();
+    }
+
+    public void Update()
+    {
+        gameObjects = GameObject.FindGameObjectsWithTag("Mechanism");
+        hiddenObjects = GameObject.FindGameObjectsWithTag("HiddenObject");
+        charaMove = GameObject.FindGameObjectWithTag("Player").GetComponent<CharaMove>();
+        configReader = GameObject.Find("Scene").GetComponentInChildren<ConfigReader>();
     }
 
     public void SetHiddenObjectOn()
     {
         foreach(GameObject go in hiddenObjects)
         {
+            if(go != null)
             go.SetActive(true);
         }
     }
@@ -37,22 +49,34 @@ public class MechanismController : MonoBehaviour
     {
         foreach (GameObject go in hiddenObjects)
         {
-            go.SetActive(false);
+            if (go != null)
+                go.SetActive(false);
         }
     }
     public void SetColliderOn()
     {
         foreach (GameObject go in gameObjects)
         {
-            go.GetComponent<Mechanism>().SetColliderOn();
+            if (go != null)
+                go.GetComponent<Mechanism>().SetColliderOn();
         }
     }
 
     public void SetColliderOff()
     {
+        Debug.Log(gameObjects.Length);
         foreach (GameObject go in gameObjects)
         {
-            go.GetComponent<Mechanism>().SetColliderOff();
+            if (go != null)
+            {
+                if(go.GetComponent<Mechanism>() == null)
+                {
+                    Debug.Log(go.name);
+                }
+                Debug.Log(go.name);
+                go.GetComponent<Mechanism>().SetColliderOff();
+            }
+                    
         }
     }
 
@@ -68,18 +92,26 @@ public class MechanismController : MonoBehaviour
         }
         foreach (GameObject go in gameObjects)
         {
-            go.GetComponent<Mechanism>().TimePause();
+            if (go != null)
+                go.GetComponent<Mechanism>().TimePause();
         }
     }
 
     public void SetTimeStart()
     {
+
         configReader.time_pause = false;
-        charaMove.canMove = true;
-        charaMove.GetComponent<Rigidbody2D>().gravityScale = 1;
+        if (charaMove)
+        {
+            charaMove.canMove = true;
+
+            charaMove.GetComponent<Rigidbody2D>().gravityScale = charaMove.gravityScale;
+        }
+
         foreach (GameObject go in gameObjects)
         {
-            go.GetComponent<Mechanism>().TimeStart();
+            if (go != null)
+                go.GetComponent<Mechanism>().TimeStart();
         }
     }
 }

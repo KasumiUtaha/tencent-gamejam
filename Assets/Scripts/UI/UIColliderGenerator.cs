@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
+using Image = UnityEngine.UI.Image;
+using Unity.VisualScripting;
 
 public class UIColliderGenerator : MonoBehaviour
 {
@@ -11,8 +13,10 @@ public class UIColliderGenerator : MonoBehaviour
     public Camera mainCamera; // 主摄像机
     public GameObject colliderPrefab; // 用于生成碰撞体的预制件
     private List<Button> buttons;
-    [SerializeField]
     private Dictionary<Button,BoxCollider2D> buttonToCol;
+    [SerializeField]
+    private Image menuFrameImage;
+    public float frameAlpha;
     public bool ui_collider;//暴露的字段
     private bool pre_ui_collider;
     void Start()
@@ -21,7 +25,7 @@ public class UIColliderGenerator : MonoBehaviour
         pre_ui_collider = ui_collider;
         buttons = new List<Button>();
         buttonToCol = new Dictionary<Button,BoxCollider2D>();
-        mainCamera ??= Camera.main;
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         if (colliderPrefab == null)
         {
             Debug.LogError("请为 colliderPrefab 赋值一个带有 BoxCollider2D 的预制件。");
@@ -41,28 +45,47 @@ public class UIColliderGenerator : MonoBehaviour
     }
     private void Update()
     {
-        if(ui_collider != pre_ui_collider)
-        {
-            
-            foreach(var but in buttonToCol.Keys)
-            {
-                buttonToCol[but].enabled = ui_collider;
-                if (!but.isActiveAndEnabled)
-                {
-                    buttonToCol[but].enabled = but.gameObject.activeInHierarchy;
-                }
-            }
-            pre_ui_collider = ui_collider;
-        }
+        UpdateCollider();
+        UpdateFrame();
     }
 
     public void SetUiColliderOn()
     {
-        ui_collider=true;
+        ui_collider = true;
     }
     public void SetUiColliderOff()
     {
         ui_collider = false;
+    }
+
+    private void UpdateCollider()
+    {
+        foreach (var but in buttonToCol.Keys)
+        {
+            if (but.gameObject.activeInHierarchy)
+            {
+                buttonToCol[but].enabled = ui_collider;
+            }
+            else
+            {
+                buttonToCol[but].enabled = false;
+            }
+        }
+    }
+    private void UpdateFrame()
+    {
+        if (ui_collider)
+        {
+            Color newColor = menuFrameImage.color;
+            newColor.a = frameAlpha;
+            menuFrameImage.color = newColor;
+        }
+        else
+        {
+            Color newColor = menuFrameImage.color;
+            newColor.a = 1f;
+            menuFrameImage.color = newColor;
+        }
     }
     void CreateColliderForUIButton(Button uiButton)
     {

@@ -8,17 +8,17 @@ public class Box : Mechanism
 
     private new void Start()
     {
-        boxRb = FindFirstObjectByType<Rigidbody2D>();
+        boxRb = GetComponent<Rigidbody2D>();
     }
     public override void TimePause()
     {
-        boxRb.constraints = RigidbodyConstraints2D.FreezePosition ;
+        boxRb.constraints = RigidbodyConstraints2D.FreezeAll ;
 
     }
 
     public override void TimeStart()
     {
-        boxRb.constraints = ~RigidbodyConstraints2D.FreezePosition;
+        boxRb.constraints = RigidbodyConstraints2D.FreezeRotation;
         boxRb.AddForce(Vector2.down * 0.1f);
     }
 }

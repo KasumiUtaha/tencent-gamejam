@@ -24,6 +24,7 @@ public class AudioManager : MonoBehaviour
     public void Play(string name, float volume = 0.5f, float pitch = 1.0f)
     {
         var ap  = Instantiate(audioPlayerPrefab,transform).GetComponent<AudioPlayer>();
+        if (ap == null) Debug.Log("error");
         ap.audioSource.clip = ResourceManager.LoadAudio(name);
         ap.audioSource.pitch = pitch;
         if(!ap.audioSource.clip)

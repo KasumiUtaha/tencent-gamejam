@@ -15,26 +15,72 @@ public class ConfigReader : MonoBehaviour
     public bool player_collider = true;
     public bool ui_collider = false;
     public bool hidden_object = false;
+    public float brightness = 1.0f;
+    public bool blur = false;
     [SerializeField] private UIColliderGenerator uIColliderGenerator;
     [SerializeField] private CharaMove charaMove;
+    [SerializeField] private BrightnessManager brightnessManager;
+    [SerializeField] private ScreenBlurEffect screenBlurEffect;
+    [SerializeField] private DialogueMannager dialogueMannager;
+    public List<string> originFileText = new List<string>();
+    private DateTime currentModified = DateTime.MinValue;
+    public List<GameObject> ice;
+
 
     private void Awake()
     {
-        path = Application.dataPath + "/Configuration/" + textAsset.name + ".txt";
-        lastModified = File.GetLastWriteTime(path);
-        ReadConfig();
+        string cd = Directory.GetCurrentDirectory();
+        path = cd + "\\Gameplay\\"+ textAsset.name + ".txt";
+
+
+        string allText = "";
+        foreach (string originFile in originFileText)
+        {
+            allText += originFile;
+            allText += "\n";
+        }
+        File.WriteAllText(path, allText);
+        lastModified = File.GetLastWriteTime(path);   
+        //ReadConfig();
     }
 
+    private void Start()
+    {
+        MechanismController.instance.Update();
+        StartConfig();
+        Screen.SetResolution(1920, 1080, false);
+    }
+
+    void StartConfig()
+    {
+        if (time_pause) MechanismController.instance.SetTimePause();
+        if (!player_collider) MechanismController.instance.SetColliderOff();
+        if (ui_collider) uIColliderGenerator.SetUiColliderOn();
+        if (hidden_object) MechanismController.instance.SetHiddenObjectOn();
+        brightnessManager.SetLight(1.0f - brightness);
+        if(blur) screenBlurEffect.render_blur_effect = true;
+    }
+
+ 
     private void Update()
     {
-        DateTime currentModified = File.GetLastWriteTime(path);
-       // Debug.Log(currentModified + "   " + lastModified + "   " + path);
-        if (currentModified != lastModified)
+        string s = File.ReadAllText(path);
+        // Debug.Log(currentModified + "   " + lastModified + "   " + path);
+        /*
+         currentModified = File.GetLastWriteTime(path);
+         if (currentModified != lastModified)
+         {
+             Debug.Log("Modified");
+             ReadConfig();
+             lastModified = currentModified;
+         }
+        */
+        string[] st = s.Split('\n');
+        foreach (string st2 in st)
         {
-            Debug.Log("Modified");
-            ReadConfig();
-            lastModified = currentModified;
+            Parse(st2);
         }
+
     }
 
     void ReadConfig()
@@ -54,7 +100,7 @@ public class ConfigReader : MonoBehaviour
             {
                 player_move = true;
                 charaMove.canMove = true;
-                charaMove.GetComponent<Rigidbody2D>().gravityScale = 1;
+                charaMove.GetComponent<Rigidbody2D>().gravityScale = charaMove.gravityScale;
             }
             else if (lineText.Contains("false"))
             {
@@ -79,6 +125,7 @@ public class ConfigReader : MonoBehaviour
         {
             if (lineText.Contains("true"))
             {
+                Debug.Log("Trigger" + ui_collider);   
                 if (ui_collider == false) uIColliderGenerator.SetUiColliderOn();
                 ui_collider = true;
             }
@@ -100,6 +147,42 @@ public class ConfigReader : MonoBehaviour
                 if (player_collider == true) MechanismController.instance.SetColliderOff();
                 player_collider = false;
             }
+        }
+        else if(lineText.Contains("brightness"))
+        {
+            string[] st = lineText.Split('=');
+            if (st.Length < 2) return;
+            float brightness = float.Parse(st[1]);
+            brightness = 1 - brightness;
+            if (brightness > 1f) brightness = 1f;
+            else if(brightness < 0f) brightness = 0f;
+            brightnessManager.SetLight(brightness);
+        }
+        else if(lineText.Contains("Ä£ºý"))
+        {
+            if (lineText.Contains("true"))
+            {
+                screenBlurEffect.render_blur_effect = true;
+            }
+            else if (lineText.Contains("false"))
+            {
+                screenBlurEffect.render_blur_effect = false;
+            }
+        }
+        else if(lineText.Contains("×ÖÌå"))
+        {
+            if(lineText.Contains("JiaGuWenZi"))
+            {
+                dialogueMannager.ChangeFont1();
+            }
+            else if(lineText.Contains("Normal"))
+            {
+                dialogueMannager.ChangeFont2();
+            }
+        }
+        else if (lineText.Contains("friction"))
+        {
+            
         }
     }
 

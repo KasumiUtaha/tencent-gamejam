@@ -7,7 +7,7 @@ public class MenuManager : UIManager
 {
 
     [SerializeField]
-    private GameObject menuCanvas;
+    private GameObject menu;
     private bool timePause;
     public void SetTimePause(bool flag)
     {
@@ -16,17 +16,17 @@ public class MenuManager : UIManager
     protected override void Start()
     {
         base.Start();
-        MenuClose();
         timePause = true;
     }
 
     protected override void Update()
     {
         base.Update();
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
 
-            if (menuCanvas.activeInHierarchy)
+            if (menu.activeInHierarchy)
             {
                 OnClose();
             }
@@ -58,13 +58,12 @@ public class MenuManager : UIManager
     }
     public void MenuOpen()
     {
-
         TimePause();
-        menuCanvas.SetActive(true);
+        menu.SetActive(true);
     }
     public void MenuClose()
     {
         TimeReturn();
-        menuCanvas.SetActive(false);
+        menu.SetActive(false);
     }
 }

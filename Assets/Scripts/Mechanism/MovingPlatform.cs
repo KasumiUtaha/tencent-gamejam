@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngineInternal;
 
@@ -14,6 +14,7 @@ public class MovingPlatform : Mechanism
     [SerializeField] private Transform rightDetector;
     [SerializeField] private Transform leftDetector;
     [SerializeField] private bool startMoving = true;
+    [SerializeField] private GameObject onPlaneObject;
     bool isMoving = false;
     private float adjustLength;
     public CharaMove charaMove;
@@ -48,7 +49,10 @@ public class MovingPlatform : Mechanism
             else if (transform.position.x + direction * adjustLength <= leftPoint.position.x) direction = 1;
             //if (ColliderDetect()) direction = -direction;
             Vector3 moveDirection = direction == 1 ? Vector3.right : Vector3.left;
-            if(onPlane) charaMove.onPlaneVelocity = movingSpeed * direction;
+            if(onPlane) 
+            {
+                charaMove.onPlaneVelocity = movingSpeed * direction;
+            }
             transform.Translate(moveDirection * movingSpeed * Time.deltaTime);
             yield return null;
         }
@@ -56,8 +60,13 @@ public class MovingPlatform : Mechanism
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 6) onPlane = true;
-
+        
+        if (collision.gameObject.layer == 6 && collision.gameObject.transform.position.y > transform.position.y) onPlane = true;
+        else if (collision.gameObject.transform.position.y > transform.position.y)
+        {
+            onPlaneObject = collision.gameObject;
+            collision.gameObject.transform.SetParent(transform);
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -66,6 +75,11 @@ public class MovingPlatform : Mechanism
         {
             onPlane = false;
             charaMove.onPlaneVelocity = 0;
+        }
+        else if(collision.gameObject == onPlaneObject)
+        {
+            onPlaneObject.transform.SetParent(null);
+            onPlaneObject = null;
         }
     }
     public override void SetColliderOff()

@@ -8,6 +8,8 @@ public class CharaMove : MonoBehaviour
     public float jumpHeight;
     public float moveSpeed;
     public float moveSpeedAir;
+    public float gravityScale = 1f;
+    public CharaAnim charaAnim;
 
     public Transform groundDetector1;
     public Transform groundDetector2;
@@ -38,6 +40,7 @@ public class CharaMove : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         circleCollider = GetComponent<Collider2D>();
+        gravityScale = rb.gravityScale;
     }
 
     // Update is called once per frame
@@ -52,6 +55,7 @@ public class CharaMove : MonoBehaviour
             //Debug.Log(rb.velocityY);
             if(onGround && rb.velocityY <= 0.001f)
             {
+                charaAnim.animator.SetTrigger("isJumping");
                 rb.velocity = new Vector2(rb.velocity.x, Mathf.Sqrt(-Physics2D.gravity.y * rb.gravityScale * 2 * jumpHeight));
                 //Debug.Log("Jump " + rb.velocityY);
             }
@@ -73,6 +77,7 @@ public class CharaMove : MonoBehaviour
                 (inputVelocity > -0.01 ? 1 : -1) :
                 (inputVelocity > 0.01 ? 1 : -1) ;
             walking = inputVelocity > 0.1f || inputVelocity < -0.1f;
+            charaAnim.isMoving = walking;
         }
         if(!onIce) rb.velocityX = inputVelocity + onPlaneVelocity;
     }
