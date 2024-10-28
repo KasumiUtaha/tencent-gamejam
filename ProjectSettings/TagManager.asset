@@ -3,20 +3,33 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+<<<<<<< HEAD
   tags:
   - Mechanism
   - TextTrigger
   - HiddenObject
+=======
+  tags: []
+>>>>>>> 2c95db701edb685d9f2f0b18ba4377c3f9a8e8cb
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
+<<<<<<< HEAD
   - Ground
   - Water
   - UI
   - Player
   - Background
   - Door
+=======
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+>>>>>>> 2c95db701edb685d9f2f0b18ba4377c3f9a8e8cb
   - 
   - 
   - 
@@ -44,6 +57,7 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+<<<<<<< HEAD
   - name: Background
     uniqueID: 2709243305
     locked: 0
@@ -62,3 +76,5 @@ TagManager:
   - name: UI
     uniqueID: 2887812193
     locked: 0
+=======
+>>>>>>> 2c95db701edb685d9f2f0b18ba4377c3f9a8e8cb

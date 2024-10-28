@@ -592,6 +592,7 @@ PlayerSettings:
   webGLMemoryGeometricGrowthStep: 0.2
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
+<<<<<<< HEAD
   scriptingDefineSymbols:
     Android: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2
     EmbeddedLinux: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2
@@ -608,6 +609,9 @@ PlayerSettings:
     XboxOne: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2
     iPhone: DOTWEEN
     tvOS: DOTWEEN;UNITY_POST_PROCESSING_STACK_V2
+=======
+  scriptingDefineSymbols: {}
+>>>>>>> 2c95db701edb685d9f2f0b18ba4377c3f9a8e8cb
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
