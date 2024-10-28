@@ -6,6 +6,7 @@ public class ButtonBasic : MonoBehaviour
 {
     private Collider2D trigger;
     public ButtonSet buttonSet;
+    public GameObject goOnButton;
     public GameObject Image1;
     public GameObject Image2;
     private Animator animator;
@@ -25,7 +26,9 @@ public class ButtonBasic : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (isPressed == true) return; 
         isPressed = true;
+        goOnButton = collision.gameObject;
         AudioManager.instance.Play("click");
         Image1.SetActive(false);
         Image2.SetActive(true);
@@ -35,7 +38,9 @@ public class ButtonBasic : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if(collision.gameObject != goOnButton) return;
         isPressed = false;
+        goOnButton = null;
         animator.SetBool("isPressed", false);
         AudioManager.instance.Play("click");
         buttonSet.CheckAndInvoke(this);

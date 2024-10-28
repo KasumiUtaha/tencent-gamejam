@@ -53,6 +53,8 @@ public class Spring : Mechanism
         
     }
 
+   
+
     IEnumerator MoveGameObject(GameObject go)
     {
         if (go.tag == "Player") charaMove.canMove = false;
@@ -70,6 +72,15 @@ public class Spring : Mechanism
             //Debug.Log(configReader.time_pause);
             while(configReader.time_pause == true && go.tag != "Player") yield return null;
             while(configReader.time_pause == true && go.tag == "Player" && configReader.player_move == false) yield return null;
+            if (go.tag == "Player")
+            {
+                if(charaMove.shouldStop == true)
+                {
+                    Debug.Log("Stop");
+                    charaMove.shouldStop = false;
+                    break;
+                }
+            }
             t += Time.deltaTime / springTime;
             //i++;
             //if (i >= bezierPoint.Count - 1) break;

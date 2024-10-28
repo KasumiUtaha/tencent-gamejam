@@ -22,6 +22,8 @@ public class CharaMove : MonoBehaviour
     public bool canMove  = true;
     public bool player_move = false;
     public bool onIce = false;
+    public bool shouldStop = false;
+    bool isJumping = false;
 
     public Rigidbody2D rb;
     private Collider2D circleCollider;
@@ -43,6 +45,16 @@ public class CharaMove : MonoBehaviour
         gravityScale = rb.gravityScale;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+       
+        if(collision.transform.position.y < transform.position.y && collision.gameObject.tag == "Box" && !canMove)
+        {
+            shouldStop = true;
+        }
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -53,12 +65,17 @@ public class CharaMove : MonoBehaviour
         {
             //Debug.Log(onGround);
             //Debug.Log(rb.velocityY);
-            if(onGround && rb.velocityY <= 0.001f)
+            if(onGround && rb.velocityY <= 0.001f && !isJumping)
             {
                 charaAnim.animator.SetTrigger("isJumping");
+                isJumping = true;
                 rb.velocity = new Vector2(rb.velocity.x, Mathf.Sqrt(-Physics2D.gravity.y * rb.gravityScale * 2 * jumpHeight));
                 //Debug.Log("Jump " + rb.velocityY);
             }
+        }
+        if(Input.GetButtonUp("Jump"))
+        {
+            isJumping = false;
         }
         //Debug.Log(rb.velocityY);
         float inputVelocity = 0f;

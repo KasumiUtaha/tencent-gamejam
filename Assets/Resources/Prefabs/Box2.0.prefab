@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7297393464733640929}
   m_Layer: 3
   m_Name: Box2.0
-  m_TagString: Mechanism
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,6 +129,7 @@ MonoBehaviour:
   bindingColliderOnPress: 0
   bindingColliderOnRelease: 1
   boxRb: {fileID: 7004343839159674663}
+  shouldStop: 0
 --- !u!1 &7410469873405742024
 GameObject:
   m_ObjectHideFlags: 0
