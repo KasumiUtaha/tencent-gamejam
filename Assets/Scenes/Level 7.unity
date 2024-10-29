@@ -1002,6 +1002,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FadeCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7188383814912820945, guid: 6ffe9b2145dfbfc43aa88d69541507bf, type: 3}
+      propertyPath: m_text
+      value: "\u7B2C\u4E03\u5173\n\u5199 UI \u5199\u7684"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1516,6 +1520,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3502642141333697818, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
+      propertyPath: m_text
+      value: "\u5199 UI \u5199\u7684"
+      objectReference: {fileID: 0}
     - target: {fileID: 4773476251142493318, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -1620,6 +1628,24 @@ PrefabInstance:
       propertyPath: TextTrigger
       value: 
       objectReference: {fileID: 1487514518}
+    - target: {fileID: 9115072922721228070, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
+      propertyPath: dialogueLines.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9115072922721228070, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
+      propertyPath: 'dialogueLines.Array.data[0]'
+      value: "\u4E0D\u7792\u4F60\u8BF4\uFF0C\u6211\u66FE\u7ECF\u4E5F\u662F\u4E00\u4E2A
+        UI \u5DE5\u7A0B\u5E08\uFF0C\u60F3\u4E0D\u5230\u5427"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9115072922721228070, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
+      propertyPath: 'dialogueLines.Array.data[1]'
+      value: "\u6211\u4EEC\u6E38\u620F\u91CC\u4E5F\u6709\u5F88\u591A UI \u5662\uFF0C\u4F60\u5C4F\u5E55\u91CC\u53F3\u4E0A\u89D2\u7684\u6309\u94AE\u4E5F\u662F\u4E00\u4E2A\uFF0C\u70B9\u51FB\u4E4B\u540E\u7684\u754C\u9762\u4E5F\u662F
+        UI \u5662\uFF0C\u8FD9\u51E0\u4E2A UI \u6211\u6413\u4E86\u597D\u4E45\u5462"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9115072922721228070, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
+      propertyPath: 'dialogueLines.Array.data[2]'
+      value: "\u600E\u4E48\u6837\uFF0C\u6211\u4EEC UI \u4ED4\u5F88\u5389\u5BB3\u5427"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

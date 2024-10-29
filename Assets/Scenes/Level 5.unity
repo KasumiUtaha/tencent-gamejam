@@ -1000,6 +1000,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FadeCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7188383814912820945, guid: 6ffe9b2145dfbfc43aa88d69541507bf, type: 3}
+      propertyPath: m_text
+      value: "\u7B2C\u4E94\u5173\n\u6211\u7A7F\u8D8A\u4E86\uFF1F"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2609,6 +2613,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3502642141333697818, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
+      propertyPath: m_text
+      value: "\u6211\u7A7F\u8D8A\u4E86\uFF1F"
+      objectReference: {fileID: 0}
     - target: {fileID: 4773476251142493318, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -2713,6 +2721,30 @@ PrefabInstance:
       propertyPath: TextTrigger
       value: 
       objectReference: {fileID: 2006726814}
+    - target: {fileID: 9115072922721228070, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
+      propertyPath: dialogueLines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9115072922721228070, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
+      propertyPath: 'dialogueLines.Array.data[0]'
+      value: "  \u5077\u5077\u544A\u8BC9\u4F60\uFF0C\u6211\u8FD8\u633A\u559C\u6B22\u7532\u9AA8\u6587\u7684"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9115072922721228070, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
+      propertyPath: 'dialogueLines.Array.data[1]'
+      value: "  \u6211\u8FD8\u89C9\u5F97\u80FD\u591F\u5728\u6E38\u620F\u4E2D\uFF0C\u7528\u5230\u7532\u9AA8\u6587\u5B57\u4F53\u975E\u5E38\u9177\u5462"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9115072922721228070, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
+      propertyPath: 'dialogueLines.Array.data[2]'
+      value: "\u5982\u4F60\u6240\u89C1\uFF0C\u6211\u73B0\u5728\u5728\u505A\u6E38\u620F\uFF0C\u6765\u90FD\u6765\u4E86\uFF0C\u90A3\u8BF7\u4F60\u5E2E\u52A9\u6211\u6D4B\u8BD5\u4E0B\u6211\u7684\u6E38\u620F\u5427\u3002\u8C22\u8C22\u4F60\uFF01\uFF01\uFF01"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9115072922721228070, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
+      propertyPath: 'dialogueLines.Array.data[3]'
+      value: "\u8FD9\u4E2A\u6E38\u620F\u5F88\u7B80\u5355\u7684\uFF0C\u8D70\u5230\u6BCF\u4E00\u5173\u7684\u65D7\u5B50\u5904\u5C31\u53EF\u4EE5\u4E86\uFF0C\u662F\u4E0D\u662F\u5F88\u7B80\u5355\u5462\uFF1F"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9115072922721228070, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
+      propertyPath: 'dialogueLines.Array.data[4]'
+      value: "\u6211\u5E73\u65F6\u6CA1\u4E8B\u5C31\u5F85\u5728\u8FD9\u91CC\u5199\u4EE3\u7801\uFF0C\u9047\u5230\u95EE\u9898\u7684\u65F6\u5019\u53EF\u4EE5\u968F\u65F6\u558A\u6211\u5662"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
