@@ -621,8 +621,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 314525908}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9900001, y: -8.0199995, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.12, y: -1.0199995, z: 0}
   m_LocalScale: {x: 45.873528, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -633,7 +633,7 @@ Transform:
   - {fileID: 56613976}
   - {fileID: 1764293505}
   - {fileID: 861598148}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 976265386}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &314525911
 BoxCollider2D:
@@ -828,7 +828,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7438200111123784945, guid: ff5022631c80a1d41be0b4226d7a7fde, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 314525910}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff5022631c80a1d41be0b4226d7a7fde, type: 3}
 --- !u!1001 &576523579
@@ -1002,7 +1005,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7188383814912820945, guid: 6ffe9b2145dfbfc43aa88d69541507bf, type: 3}
       propertyPath: m_text
-      value: "\u7B2C\u4E94\u5173\n\u6211\u7A7F\u8D8A\u4E86\uFF1F"
+      value: "\u7B2C\u4E94\u5173\n\u6211\u7A7F\u8D8A\u4E86"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1497,6 +1500,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &976265386 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7438200111123784945, guid: ff5022631c80a1d41be0b4226d7a7fde, type: 3}
+  m_PrefabInstance: {fileID: 546315921}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1018495017
 GameObject:
   m_ObjectHideFlags: 0
@@ -2615,7 +2623,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3502642141333697818, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
       propertyPath: m_text
-      value: "\u6211\u7A7F\u8D8A\u4E86\uFF1F"
+      value: "\u6211\u7A7F\u8D8A\u4E86"
       objectReference: {fileID: 0}
     - target: {fileID: 4773476251142493318, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
       propertyPath: m_Name
@@ -3233,7 +3241,6 @@ SceneRoots:
   - {fileID: 577449191}
   - {fileID: 2052172171}
   - {fileID: 16442567}
-  - {fileID: 314525910}
   - {fileID: 546315921}
   - {fileID: 827152194}
   - {fileID: 1571488750}
