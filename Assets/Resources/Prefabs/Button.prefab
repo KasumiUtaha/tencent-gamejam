@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1482915663680758015}
   - component: {fileID: 2582872402996103443}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "\u6309\u94AE-\u8E29\u8E0F\u540E"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1975506407
-  m_SortingLayer: 4
+  m_SortingLayerID: 1329983799
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1213b34fb3a10744f9cb44fcc0798717, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 2564769438442626332}
   - component: {fileID: 6555666754172357362}
   - component: {fileID: 8313586076613529171}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,6 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonSet: {fileID: 0}
+  goOnButton: {fileID: 0}
   Image1: {fileID: 8927114314999534322}
   Image2: {fileID: 4075126349960281168}
   isPressed: 0
@@ -214,7 +215,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5361742685311180618}
   - component: {fileID: 7484866729746388265}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "\u6309\u94AE-\u672A\u8E29\u8E0F"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,8 +275,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1975506407
-  m_SortingLayer: 4
+  m_SortingLayerID: 1329983799
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a943271a6294a4a44b91b772429586b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

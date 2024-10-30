@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4169815224029494645}
   - component: {fileID: 2283747765005418286}
   - component: {fileID: 6479867578223375334}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Plane1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 782719613
-  m_SortingLayer: 5
+  m_SortingLayerID: -9850133
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bb177b3186a9ccd4bac0c0088a2c9fd6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

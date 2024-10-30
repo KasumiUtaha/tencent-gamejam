@@ -1,4 +1,3 @@
-hidden_object=false
 player_move=false
 player_collider=true
 ui_collider=false

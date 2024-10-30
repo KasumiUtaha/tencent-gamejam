@@ -11,6 +11,7 @@ public class DialogueMannager : MonoBehaviour
     public GameObject dialogueBox;//显示or隐藏整个对话窗口
     public TextMeshProUGUI dialogueText;//输出文字和名字
     public GameObject dialogueTextAsset;
+    public float waitTime = 2f;
 
     public GameObject TextTrigger;
     [TextArea(1, 3)]//显示文字时不会只显示一行
@@ -26,7 +27,7 @@ public class DialogueMannager : MonoBehaviour
 
     public bool isCover = false;//鼠标位置是否到达指定区域
     bool isScolling; //是否滚动 判断状态
-    bool isFirst = true;//判断是否是第一次出现引导
+    public bool isFirst = true;//判断是否是第一次出现引导
 
     [SerializeField] private float textScollingIntervalTime;//滚动间隔
     [SerializeField] private float StartIntervalTime;//初始间隔
@@ -136,6 +137,7 @@ public class DialogueMannager : MonoBehaviour
                 }
             }
         }
+        if (isFirst) yield return new WaitForSeconds(waitTime);
         dialogueAnim.isSpeaking = false;
         isScolling = false;
     }

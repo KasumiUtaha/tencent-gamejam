@@ -328,7 +328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 314525910}
   - component: {fileID: 314525911}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -638,6 +638,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6886237207815846382, guid: 9d34596509541964990894027ae59ef6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7003643124470996592, guid: 9d34596509541964990894027ae59ef6, type: 3}
       propertyPath: title
       value: 
@@ -802,7 +806,7 @@ GameObject:
   m_Component:
   - component: {fileID: 649548804}
   - component: {fileID: 649548805}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: "\u8FB9\u68463"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -862,8 +866,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2029824625
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0e7e57248ed412d41baab6f3170eb585, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -897,7 +901,7 @@ GameObject:
   m_Component:
   - component: {fileID: 725498641}
   - component: {fileID: 725498640}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 1 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -981,7 +985,7 @@ GameObject:
   m_Component:
   - component: {fileID: 740669786}
   - component: {fileID: 740669785}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 1 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1065,7 +1069,7 @@ GameObject:
   m_Component:
   - component: {fileID: 778146852}
   - component: {fileID: 778146851}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 1 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1475,11 +1479,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5968984055799702154, guid: 40671de5547fcda418421301e4483100, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.76
+      value: 16.72
       objectReference: {fileID: 0}
     - target: {fileID: 5968984055799702154, guid: 40671de5547fcda418421301e4483100, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.58
+      value: -5.26
       objectReference: {fileID: 0}
     - target: {fileID: 5968984055799702154, guid: 40671de5547fcda418421301e4483100, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1532,7 +1536,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1121029796}
   - component: {fileID: 1121029797}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: "\u80CC\u666F_0"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1592,9 +1596,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 2029824625
+  m_SortingLayer: 1
+  m_SortingOrder: -1
   m_Sprite: {fileID: -1843028302627794106, guid: a32ebf4e693a55947acdc25631ece1d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1731,7 +1735,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 64
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1795,7 +1799,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1624501976781020489, guid: a34d30762a3345e4ba47138a69067e58, type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 383
+      value: 447
       objectReference: {fileID: 0}
     - target: {fileID: 3829932183004589156, guid: a34d30762a3345e4ba47138a69067e58, type: 3}
       propertyPath: m_Name
@@ -1880,7 +1884,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1444303720}
   - component: {fileID: 1444303719}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1964,7 +1968,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1467539370}
   - component: {fileID: 1467539369}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2105,7 +2109,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1577073883}
   - component: {fileID: 1577073884}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: "\u80CC\u666F2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2165,8 +2169,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2029824625
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9baa7f1ff821794c8f439987052e8c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2189,7 +2193,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1583471959}
   - component: {fileID: 1583471958}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2566,7 +2570,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1953766660}
   - component: {fileID: 1953766659}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2939,6 +2943,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4900000, guid: 680eea5b684d5f645943a73df1a0de3f, type: 3}
     - target: {fileID: 7538134038866861926, guid: ffa0e303e42f22e4bad88607d8e72c00, type: 3}
+      propertyPath: player_move
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538134038866861926, guid: ffa0e303e42f22e4bad88607d8e72c00, type: 3}
       propertyPath: player_collider
       value: 1
       objectReference: {fileID: 0}
@@ -2960,7 +2968,11 @@ PrefabInstance:
       objectReference: {fileID: 614050331}
     - target: {fileID: 7538134038866861926, guid: ffa0e303e42f22e4bad88607d8e72c00, type: 3}
       propertyPath: originFileText.Array.size
-      value: 6
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538134038866861926, guid: ffa0e303e42f22e4bad88607d8e72c00, type: 3}
+      propertyPath: 'originFileText.Array.data[0]'
+      value: "// \u7528\u4E8E\u8BA9 player \u5728 esc \u72B6\u6001\u4E0B\u6709\u8FD0\u52A8\u80FD\u529B"
       objectReference: {fileID: 0}
     - target: {fileID: 7538134038866861926, guid: ffa0e303e42f22e4bad88607d8e72c00, type: 3}
       propertyPath: 'originFileText.Array.data[1]'
@@ -2968,19 +2980,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7538134038866861926, guid: ffa0e303e42f22e4bad88607d8e72c00, type: 3}
       propertyPath: 'originFileText.Array.data[2]'
+      value: "// \u7528\u4E8E\u63A7\u5236\u73A9\u5BB6\u7684\u78B0\u649E\u4F53"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538134038866861926, guid: ffa0e303e42f22e4bad88607d8e72c00, type: 3}
+      propertyPath: 'originFileText.Array.data[3]'
       value: player_collider=true
       objectReference: {fileID: 0}
     - target: {fileID: 7538134038866861926, guid: ffa0e303e42f22e4bad88607d8e72c00, type: 3}
       propertyPath: 'originFileText.Array.data[4]'
-      value: brightness=1
+      value: "// \u7528\u4E8E\u63A7\u5236 ui \u754C\u9762\u7684\u78B0\u649E\u4F53"
       objectReference: {fileID: 0}
     - target: {fileID: 7538134038866861926, guid: ffa0e303e42f22e4bad88607d8e72c00, type: 3}
       propertyPath: 'originFileText.Array.data[5]'
-      value: "\u6A21\u7CCA=true"
+      value: ui_collider=false
       objectReference: {fileID: 0}
     - target: {fileID: 7538134038866861926, guid: ffa0e303e42f22e4bad88607d8e72c00, type: 3}
       propertyPath: 'originFileText.Array.data[6]'
-      value: 
+      value: "// \u7528\u4E8E\u4FEE\u6539\u6E38\u620F\u5173\u5361\u4EAE\u5EA6"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538134038866861926, guid: ffa0e303e42f22e4bad88607d8e72c00, type: 3}
+      propertyPath: 'originFileText.Array.data[7]'
+      value: brightness=1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538134038866861926, guid: ffa0e303e42f22e4bad88607d8e72c00, type: 3}
+      propertyPath: 'originFileText.Array.data[8]'
+      value: "// \u7528\u4E8E\u4FEE\u6539\u5173\u5361\u6EE4\u955C"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538134038866861926, guid: ffa0e303e42f22e4bad88607d8e72c00, type: 3}
+      propertyPath: 'originFileText.Array.data[9]'
+      value: "\u6A21\u7CCA=true"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
