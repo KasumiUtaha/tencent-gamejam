@@ -17,7 +17,6 @@ public class DialogueMannager : MonoBehaviour
     public string[] dialogueLines;
     [SerializeField] private int currentLine;//用于实时追踪文字内容输出
 
-    public int textCount = 0;//文本框出现次数
     public RectTransform DBtransform;//文本框的位置
     public float dialogueRangeX = 0.5f;
     public float dialogueRangeY = 0.5f;
@@ -27,15 +26,18 @@ public class DialogueMannager : MonoBehaviour
 
     public bool isCover = false;//鼠标位置是否到达指定区域
     bool isScolling; //是否滚动 判断状态
+    bool isFirst = true;//判断是否是第一次出现引导
 
     [SerializeField] private float textScollingIntervalTime;//滚动间隔
     [SerializeField] private float StartIntervalTime;//初始间隔
+    float intervalTime;//间隔时间
 
     private DialogueAnim dialogueAnim;
 
     void Start()
     {
-        
+        intervalTime = StartIntervalTime;//初始化间隔时间
+        dialogueBox.SetActive(false);//开始时不出现
         TextTrigger_postion = TextTrigger.transform.position;//获取触发器位置
         dialogueAnim = GetComponent<DialogueAnim>();
 
@@ -54,21 +56,18 @@ public class DialogueMannager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        MousePosition();//判断鼠标是否进入触发范围
-        if (isCover)
+        Debug.Log(isFirst);
+        if (!isFirst)
         {
-            //textCount++;
-            //if(textCount > 1)
-            //{
-            //    textMeshPro.font = fontAsset;
-            //}
+            MousePosition();//判断鼠标是否进入触发范围
+            if (isCover)
+            { 
                 dialogueBox.SetActive(true);//显示对话框
-                if (dialogueBox.activeInHierarchy )//对话框窗口显示时才可以出现文本
+                if (dialogueBox.activeInHierarchy)//对话框窗口显示时才可以出现文本
                 {
                     if (isScolling == false && (Input.GetMouseButton(0) || currentLine == 0))
                     {
-                        
+
                         if (currentLine < dialogueLines.Length)
                         {
                             //dialogueText.text = dialogueLines[currentLine];
@@ -82,12 +81,39 @@ public class DialogueMannager : MonoBehaviour
                         currentLine++;
                     }
                 }
+            }
+            else
+            {
+                dialogueBox.SetActive(false);//隐藏对话框
+                StopCoroutine(ScollingText());//关闭协程
+                currentLine = 0;//恢复为从第一句开始显示
+            }
         }
-        else
+        else 
         {
-            dialogueBox.SetActive(false);//隐藏对话框
-            StopCoroutine(ScollingText());//关闭协程
-            currentLine = 0;//恢复为从第一句开始显示
+            intervalTime -= Time.deltaTime;
+            if (intervalTime <= 0)//初始时的一段间隔时间结束
+            {
+                dialogueBox.SetActive(true);
+                if(dialogueBox.activeInHierarchy)
+                {
+                    if (isScolling == false || currentLine == 0)
+                    {
+                        if (currentLine < dialogueLines.Length)
+                        {
+                            Debug.Log(1);
+                            StartCoroutine(ScollingText());
+                        }
+                        else
+                        {
+                            isFirst = false;
+                            //dialogueBox.SetActive(false);//隐藏对话框
+                            //StopCoroutine(ScollingText());//关闭协程
+                        }
+                        currentLine++;
+                    }
+                }
+            }
         }
     }
 
@@ -102,9 +128,12 @@ public class DialogueMannager : MonoBehaviour
         {
             dialogueText.text += letter;//一个字母一个字母显示出来
             yield return new WaitForSeconds(textScollingIntervalTime);
-            if(isCover == false)
+            if (!isFirst)
             {
-                break;
+                if (isCover == false)
+                {
+                    break;
+                }
             }
         }
         dialogueAnim.isSpeaking = false;
