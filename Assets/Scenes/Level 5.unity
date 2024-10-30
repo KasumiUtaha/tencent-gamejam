@@ -2717,6 +2717,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6135917112726414956, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -29
+      objectReference: {fileID: 0}
+    - target: {fileID: 6135917112726414956, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 81
+      objectReference: {fileID: 0}
+    - target: {fileID: 6816921811595526225, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5e6f257c1dafe174eb6e412322183d36, type: 2}
+    - target: {fileID: 6816921811595526225, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -1205222364512876207, guid: 5e6f257c1dafe174eb6e412322183d36, type: 2}
+    - target: {fileID: 6816921811595526225, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7378802183768792893, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
       propertyPath: Image1
       value: 

@@ -48,7 +48,6 @@ public class ConfigReader : MonoBehaviour
     {
         MechanismController.instance.Update();
         StartConfig();
-        Screen.SetResolution(1920, 1080, false);
     }
 
     void StartConfig()
