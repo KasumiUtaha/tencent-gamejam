@@ -7,17 +7,16 @@ TagManager:
   - Mechanism
   - TextTrigger
   - HiddenObject
-  - Box
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - 
   - Water
   - UI
-  - Player
-  - Background
-  - Door
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -44,22 +43,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Background
-    uniqueID: 2709243305
-    locked: 0
-  - name: Setting
-    uniqueID: 3880050327
-    locked: 0
-  - name: Ground
-    uniqueID: 782719613
-    locked: 0
-  - name: Mechanism
-    uniqueID: 1975506407
-    locked: 0
-  - name: Player
-    uniqueID: 2884024071
-    locked: 0
-  - name: UI
-    uniqueID: 2887812193
     locked: 0

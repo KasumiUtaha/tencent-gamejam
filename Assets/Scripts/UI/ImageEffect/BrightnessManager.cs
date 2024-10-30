@@ -67,6 +67,7 @@ public class BrightnessManager : MonoBehaviour
     {
         float elapsedTime = 0f;
         float startAlpha = currentLight;
+        //Debug.Log(startAlpha + " " + targetAlpha);
         while (elapsedTime < transitionDuration)
         {
             elapsedTime += Time.deltaTime;
