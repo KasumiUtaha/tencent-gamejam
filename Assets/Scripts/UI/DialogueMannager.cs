@@ -57,7 +57,6 @@ public class DialogueMannager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(isFirst);
         if (!isFirst)
         {
             MousePosition();//判断鼠标是否进入触发范围

@@ -354,7 +354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9115072922721228070, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
       propertyPath: 'dialogueLines.Array.data[1]'
-      value: "  \u653E\u5FC3\uFF0C\u6211\u7ED9\u4F60\u653E\u597D\u4E86\u57AB\u811A\u77F3\uFF0C\u53EA\u8981\u8DF3\u4E0A\u53BB\u5C31\u597D\u4E86\u3002"
+      value: "  \u653E\u5FC3\uFF0C\u6211\u7ED9\u4F60\u653E\u597D\u4E86<b>\u57AB\u811A\u77F3</b>\uFF0C\u53EA\u8981\u8DF3\u4E0A\u53BB\u5C31\u597D\u4E86\u3002"
       objectReference: {fileID: 0}
     - target: {fileID: 9115072922721228070, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
       propertyPath: 'dialogueLines.Array.data[2]'
@@ -2812,7 +2812,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7538134038866861926, guid: ffa0e303e42f22e4bad88607d8e72c00, type: 3}
       propertyPath: 'originFileText.Array.data[1]'
-      value: player_collider=true
+      value: player_collider=false
       objectReference: {fileID: 0}
     - target: {fileID: 7538134038866861926, guid: ffa0e303e42f22e4bad88607d8e72c00, type: 3}
       propertyPath: 'originFileText.Array.data[2]'
