@@ -236,6 +236,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3228517187559441687, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 614050333}
+    - target: {fileID: 3228517187559441687, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MenuClose
+      objectReference: {fileID: 0}
     - target: {fileID: 3502642141333697818, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
       propertyPath: m_text
       value: "\u80B2\u78A7\u7279\u8272 "
@@ -1085,6 +1093,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6886237207815846382, guid: 9d34596509541964990894027ae59ef6, type: 3}
   m_PrefabInstance: {fileID: 614050329}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &614050333 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7901640887069996758, guid: 9d34596509541964990894027ae59ef6, type: 3}
+  m_PrefabInstance: {fileID: 614050329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614050332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce2945660b60f642babd96b70096d9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &622055889 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7538134038866861926, guid: ffa0e303e42f22e4bad88607d8e72c00, type: 3}
@@ -2812,26 +2831,34 @@ PrefabInstance:
       objectReference: {fileID: 614050331}
     - target: {fileID: 7538134038866861926, guid: ffa0e303e42f22e4bad88607d8e72c00, type: 3}
       propertyPath: originFileText.Array.size
-      value: 4
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7538134038866861926, guid: ffa0e303e42f22e4bad88607d8e72c00, type: 3}
       propertyPath: 'originFileText.Array.data[0]'
-      value: player_move=false
+      value: "// \u7528\u4E8E\u8BA9 player \u5728 esc \u72B6\u6001\u4E0B\u6709\u8FD0\u52A8\u80FD\u529B"
       objectReference: {fileID: 0}
     - target: {fileID: 7538134038866861926, guid: ffa0e303e42f22e4bad88607d8e72c00, type: 3}
       propertyPath: 'originFileText.Array.data[1]'
-      value: player_collider=false
+      value: player_move=false
       objectReference: {fileID: 0}
     - target: {fileID: 7538134038866861926, guid: ffa0e303e42f22e4bad88607d8e72c00, type: 3}
       propertyPath: 'originFileText.Array.data[2]'
-      value: ui_collider=false
+      value: "// \u7528\u4E8E\u63A7\u5236\u73A9\u5BB6\u7684\u78B0\u649E\u4F53"
       objectReference: {fileID: 0}
     - target: {fileID: 7538134038866861926, guid: ffa0e303e42f22e4bad88607d8e72c00, type: 3}
       propertyPath: 'originFileText.Array.data[3]'
-      value: brightness=1
+      value: player_collider=false
       objectReference: {fileID: 0}
     - target: {fileID: 7538134038866861926, guid: ffa0e303e42f22e4bad88607d8e72c00, type: 3}
       propertyPath: 'originFileText.Array.data[4]'
+      value: "// \u7528\u4E8E\u63A7\u5236 ui \u754C\u9762\u7684\u78B0\u649E\u4F53"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538134038866861926, guid: ffa0e303e42f22e4bad88607d8e72c00, type: 3}
+      propertyPath: 'originFileText.Array.data[5]'
+      value: ui_collider=false
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538134038866861926, guid: ffa0e303e42f22e4bad88607d8e72c00, type: 3}
+      propertyPath: 'originFileText.Array.data[6]'
       value: brightness=1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

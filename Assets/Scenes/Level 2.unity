@@ -580,6 +580,14 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -793926801
       objectReference: {fileID: 0}
+    - target: {fileID: 3228517187559441687, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 736639125}
+    - target: {fileID: 3228517187559441687, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MenuClose
+      objectReference: {fileID: 0}
     - target: {fileID: 3502642141333697818, guid: 09038c952b973c840baf3323c0bcfa30, type: 3}
       propertyPath: m_text
       value: "\u795E\u8BF4\u8981\u6709\u5149"
@@ -1137,6 +1145,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d34596509541964990894027ae59ef6, type: 3}
+--- !u!114 &736639125 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7901640887069996758, guid: 9d34596509541964990894027ae59ef6, type: 3}
+  m_PrefabInstance: {fileID: 736639124}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093102718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce2945660b60f642babd96b70096d9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &909248373 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5657059883627992784, guid: 9d34596509541964990894027ae59ef6, type: 3}
