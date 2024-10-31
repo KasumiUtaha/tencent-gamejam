@@ -1,4 +1,6 @@
-hidden_object=false
+// 用于让 player 在 esc 状态下有运动能力
 player_move=false
+// 用于控制玩家的碰撞体
 player_collider=false
+// 用于控制 ui 界面的碰撞体
 ui_collider=false

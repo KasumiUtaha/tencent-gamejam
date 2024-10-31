@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9110040763580344805}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: GroundDetector2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3807836880179700452}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: GroundDetector1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 4715059731592012823}
   - component: {fileID: 3262713700712587471}
   - component: {fileID: 692261115228573182}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: PlayerAnimator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,8 +156,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1944560933
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 5769311604173689278, guid: 9538bc12f8929184f816340cd42fcd8d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -183,6 +183,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charaMove: {fileID: 214077756245884433}
+  animator: {fileID: 0}
+  isMoving: 0
+  sit: 0
+  standTime: 5
+  nowTime: 0
 --- !u!1 &6009304485055050366
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,7 +200,8 @@ GameObject:
   - component: {fileID: 214077756245884433}
   - component: {fileID: 8245027528634063988}
   - component: {fileID: 2462332689490687852}
-  m_Layer: 6
+  - component: {fileID: 4287987919533979832}
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -235,16 +241,19 @@ MonoBehaviour:
   jumpHeight: 1
   moveSpeed: 5
   moveSpeedAir: 3
+  gravityScale: 1
+  charaAnim: {fileID: 0}
   groundDetector1: {fileID: 3807836880179700452}
   groundDetector2: {fileID: 9110040763580344805}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 256
   groundDetectDis: 0.05
   onPlaneVelocity: 0
   canMove: 1
   player_move: 0
   onIce: 0
+  shouldStop: 0
   rb: {fileID: 0}
 --- !u!50 &8245027528634063988
 Rigidbody2D:
@@ -310,3 +319,17 @@ CapsuleCollider2D:
   m_Offset: {x: 0.050295353, y: -0.1257379}
   m_Size: {x: 1.1035433, y: 1.6538377}
   m_Direction: 0
+--- !u!114 &4287987919533979832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6009304485055050366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea43b31bda3c8cd47b19fc7b3c5dee2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ice: {fileID: 0}
+  onIceCount: 0

@@ -7,7 +7,6 @@ public class TextAutoFit : MonoBehaviour
 {
 
     public TextMeshProUGUI text;
-    public GameObject plane;
 
     public int LineMaxNum;//每一行最多字数
     public float LineMinWidth;//一行最小长度
@@ -18,12 +17,20 @@ public class TextAutoFit : MonoBehaviour
     public float len;//当前字数
     public float zoom;//非汉字的比例
 
-    public GameObject image1;
-    public GameObject image2;
-    public GameObject image3;
+    //public GameObject image1;
+    //public GameObject image2;
+    //public GameObject image3;
+
+    private void Start()
+    {
+        float rate = Screen.width / 1920f;
+        Debug.Log("Width:" + Screen.width);
+        text.fontSize *= rate;
+    }
 
     public void Update()
     {
+        /*
         len = GetLength(text.text);
         if(len <= 2*LineMaxNum)
         {
@@ -43,6 +50,7 @@ public class TextAutoFit : MonoBehaviour
             image2.SetActive(false);
             image3.SetActive(true);
         }
+        */
     }
 
     public float GetLength(string str)

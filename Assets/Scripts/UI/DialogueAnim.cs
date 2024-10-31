@@ -42,7 +42,7 @@ public class DialogueAnim : MonoBehaviour
                 StartCoroutine(Speaking());
             }
         }
-        else
+        else if (!mannager.isFirst)
         {
             if (Image2.activeInHierarchy && isMouseInTrigger)
             {
@@ -59,6 +59,11 @@ public class DialogueAnim : MonoBehaviour
                 Image2.transform.position = image2OriginPosition;
             }
             Image2.SetActive (false);
+        }
+        else
+        {
+            Image1.SetActive (false);
+            Image3.SetActive (true);
         }
     }
     
